@@ -1,0 +1,98 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "ReadmissionDomainSummary_SGRv2",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "DEMOGRAPHICS",
+    "VITALS",
+    "LABS",
+    "PROBLEMS",
+    "SYMPTOMS",
+    "MEDICATIONS",
+    "PROCEDURES",
+    "UTILIZATION",
+    "DISPOSITION"
+  ],
+  "properties": {
+    "DEMOGRAPHICS": {
+      "type": "string",
+      "maxLength": 160,
+      "description": "Key=Value lines. Sex must be 'male' or 'female' if stated."
+    },
+    "VITALS": {
+      "type": "string",
+      "maxLength": 900,
+      "description": "ADM/DC vitals in Key=Value; numeric-only; canonical vitals only."
+    },
+    "LABS": {
+      "type": "string",
+      "maxLength": 1200,
+      "description": "ADM/DC labs in Key=Value; numeric-only; canonical labs only. Use canonical names: WBC, Hemoglobin, Hematocrit, Platelet, Sodium, Potassium, Creatinine, BUN, Glucose, Bicarbonate. Alias mapping: Urea N/UreaN/Blood Urea Nitrogen -> BUN; HCO3/Total CO2/CO2/Bicarb -> Bicarbonate."
+    },
+    "PROBLEMS": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["pmh_comorbidities", "discharge_dx", "complications", "working_dx"],
+      "properties": {
+        "pmh_comorbidities": {
+          "type": "array",
+          "maxItems": 10,
+          "items": { "type": "string", "minLength": 2, "maxLength": 80 }
+        },
+        "discharge_dx": {
+          "type": "array",
+          "maxItems": 10,
+          "items": { "type": "string", "minLength": 2, "maxLength": 80 }
+        },
+        "complications": {
+          "type": "array",
+          "maxItems": 8,
+          "items": { "type": "string", "minLength": 2, "maxLength": 80 }
+        },
+        "working_dx": {
+          "type": "array",
+          "maxItems": 8,
+          "items": { "type": "string", "minLength": 2, "maxLength": 80 }
+        }
+      }
+    },
+    "SYMPTOMS": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["admission", "discharge"],
+      "properties": {
+        "admission": {
+          "type": "array",
+          "maxItems": 3,
+          "items": { "type": "string", "minLength": 2, "maxLength": 80 }
+        },
+        "discharge": {
+          "type": "array",
+          "maxItems": 1,
+          "items": { "type": "string", "minLength": 2, "maxLength": 80 }
+        }
+      }
+    },
+    "MEDICATIONS": {
+      "type": "string",
+      "maxLength": 420,
+      "description": "Integral flags/counts only (Medication Count/New Medications Count/Polypharmacy/Anticoagulation/Insulin Therapy/Opioid Therapy/Diuretic Therapy). Do not list medication names."
+    },
+    "PROCEDURES": {
+      "type": "string",
+      "maxLength": 520,
+      "description": "Integral keys only (no imaging/test inventory): Any Procedure, Surgery, Dialysis, Mechanical Ventilation. Use yes/no for Any Procedure and Surgery; Dialysis in {decided, started, done, cancelled, no}; Mechanical Ventilation numeric days or no. Use 'not stated' if absent."
+    },
+    "UTILIZATION": {
+      "type": "string",
+      "maxLength": 520,
+      "description": "Key=Value lines. Prior Admissions 12mo/ED Visits 6mo/Days Since Last Admission/Current Length of Stay. Numeric only. Use 'not stated' if absent."
+    },
+    "DISPOSITION": {
+      "type": "string",
+      "maxLength": 420,
+      "description": "Key=Value lines. Discharge Disposition (Home/Home with Services/SNF/Rehab/LTAC/Hospice/AMA), Mental Status (alert/confused/oriented/lethargic), Support Needs. Use 'not stated' if absent."
+    }
+  }
+}

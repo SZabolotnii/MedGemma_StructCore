@@ -1,0 +1,10 @@
+gradio>=4.44,<6
+pandas>=2.0,<3
+plotly>=5.0,<6
+
+# Optional (only needed for file upload convenience in the demo UI)
+PyPDF2>=3.0,<4
+python-docx>=1.1,<2
+
+# Optional (only needed for the "Cloud (Gemini)" comparative tab)
+# google-genai>=0.3,<1

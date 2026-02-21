@@ -1,0 +1,28 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "ReadmissionDomainSummary",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "DEMOGRAPHICS",
+    "VITALS",
+    "LABS",
+    "PROBLEMS",
+    "SYMPTOMS",
+    "MEDICATIONS",
+    "PROCEDURES",
+    "UTILIZATION",
+    "DISPOSITION"
+  ],
+  "properties": {
+    "DEMOGRAPHICS": { "type": "string" },
+    "VITALS": { "type": "string" },
+    "LABS": { "type": "string" },
+    "PROBLEMS": { "type": "string" },
+    "SYMPTOMS": { "type": "string" },
+    "MEDICATIONS": { "type": "string" },
+    "PROCEDURES": { "type": "string" },
+    "UTILIZATION": { "type": "string" },
+    "DISPOSITION": { "type": "string" }
+  }
+}

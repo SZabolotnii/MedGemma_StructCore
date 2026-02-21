@@ -1,0 +1,54 @@
+{
+  "version": "1.0",
+  "note": "Conservative medication mapping for readmission MVP. Rules are designed to be stable across free-text variants. First match wins.",
+  "rules": [
+    {"pattern": "\\b(AMLO\\d+|amlodipine)\\b", "canonical": "Calcium channel blocker"},
+    {"pattern": "\\b(ATOR\\d+|atorvastatin)\\b", "canonical": "Statin"},
+    {"pattern": "\\b(SIMV\\d+|simvastatin)\\b", "canonical": "Statin"},
+    {"pattern": "\\b(ROSU\\d+|rosuvastatin)\\b", "canonical": "Statin"},
+    {"pattern": "\\b(MET(F|R)?\\d+|metformin)\\b", "canonical": "Metformin"},
+
+    {"pattern": "\\binsulin\\b", "canonical": "Insulin"},
+    {"pattern": "\\bmetformin\\b", "canonical": "Metformin"},
+
+    {"pattern": "\\b(furosemide|lasix)\\b", "canonical": "Loop diuretic"},
+    {"pattern": "\\b(bumetanide|bumex|torsemide|demadex)\\b", "canonical": "Loop diuretic"},
+
+    {"pattern": "\\b(spironolactone|eplerenone)\\b", "canonical": "Aldosterone antagonist"},
+
+    {"pattern": "\\b(lisinopril|enalapril|captopril|ramipril|benazepril|quinapril|fosinopril|trandolapril|perindopril)\\b", "canonical": "ACE inhibitor"},
+    {"pattern": "\\b(losartan|valsartan|candesartan|irbesartan|olmesartan|telmisartan)\\b", "canonical": "ARB"},
+
+    {"pattern": "\\b(metoprolol|carvedilol|atenolol|propranolol|nadolol|bisoprolol|labetalol)\\b", "canonical": "Beta blocker"},
+
+    {"pattern": "\\b(amlodipine|nifedipine|diltiazem|verapamil|felodipine|isradipine)\\b", "canonical": "Calcium channel blocker"},
+
+    {"pattern": "\\b(hydrochlorothiazide|chlorthalidone|indapamide|metolazone)\\b", "canonical": "Thiazide-like diuretic"},
+
+    {"pattern": "\\b(heparin|enoxaparin|lovenox|dalteparin|fondaparinux)\\b", "canonical": "Anticoagulant"},
+    {"pattern": "\\b(warfarin|coumadin)\\b", "canonical": "Anticoagulant"},
+    {"pattern": "\\b(apixaban|eliquis|rivaroxaban|xarelto|dabigatran|pradaxa|edoxaban|savaysa)\\b", "canonical": "Anticoagulant"},
+
+    {"pattern": "\\b(aspirin|acetylsalicylic)\\b", "canonical": "Antiplatelet"},
+    {"pattern": "\\b(clopidogrel|plavix|prasugrel|ticagrelor|brilinta|ticlopidine)\\b", "canonical": "Antiplatelet"},
+
+    {"pattern": "\\b(atorvastatin|lipitor|rosuvastatin|crestor|simvastatin|zocor|pravastatin|lovastatin|fluvastatin|pitavastatin)\\b", "canonical": "Statin"},
+
+    {"pattern": "\\b(albuterol|salbutamol|ventolin|proair)\\b", "canonical": "Bronchodilator"},
+    {"pattern": "\\b(ipratropium|atrovent|tiotropium|spiriva|umeclidinium|glycopyrrolate)\\b", "canonical": "Anticholinergic bronchodilator"},
+    {"pattern": "\\b(budesonide|fluticasone|beclomethasone|mometasone)\\b", "canonical": "Inhaled corticosteroid"},
+
+    {"pattern": "\\b(prednisone|prednisolone|methylprednisolone|solumedrol|dexamethasone|hydrocortisone)\\b", "canonical": "Systemic corticosteroid"},
+
+    {"pattern": "\\b(vancomycin|zosyn|piperacillin\\s*\\/\\s*tazobactam|cefepime|ceftriaxone|cefazolin|ceftazidime|meropenem|imipenem|ertapenem|azithromycin|levofloxacin|ciprofloxacin|doxycycline|linezolid|clindamycin|amoxicillin|ampicillin|bactrim|trimethoprim\\s*\\/\\s*sulfamethoxazole)\\b", "canonical": "Antibiotic"},
+
+    {"pattern": "\\b(pantoprazole|omeprazole|esomeprazole|lansoprazole|rabeprazole)\\b", "canonical": "PPI"},
+    {"pattern": "\\b(famotidine|ranitidine|cimetidine|nizatidine)\\b", "canonical": "H2 blocker"},
+
+    {"pattern": "\\b(morphine|hydromorphone|dilaudid|oxycodone|percocet|hydrocodone|vicodin|fentanyl|methadone|buprenorphine)\\b", "canonical": "Opioid"},
+
+    {"pattern": "\\b(acetaminophen|tylenol|paracetamol)\\b", "canonical": "Acetaminophen"},
+    {"pattern": "\\b(ibuprofen|naproxen|ketorolac|toradol|diclofenac|indomethacin)\\b", "canonical": "NSAID"}
+  ],
+  "default": null
+}

@@ -1,0 +1,46 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "ReadmissionDomainSummary_SGRv3",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "DEMOGRAPHICS",
+    "VITALS",
+    "LABS",
+    "PROBLEMS",
+    "SYMPTOMS",
+    "MEDICATIONS",
+    "PROCEDURES",
+    "UTILIZATION",
+    "DISPOSITION"
+  ],
+  "properties": {
+    "DEMOGRAPHICS": { "type": "string", "maxLength": 120 },
+    "VITALS": { "type": "string", "maxLength": 520 },
+    "LABS": { "type": "string", "maxLength": 720 },
+    "PROBLEMS": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["pmh_comorbidities", "discharge_dx", "complications", "working_dx"],
+      "properties": {
+        "pmh_comorbidities": { "type": "array", "maxItems": 8, "items": { "type": "string", "minLength": 2, "maxLength": 70 } },
+        "discharge_dx": { "type": "array", "maxItems": 8, "items": { "type": "string", "minLength": 2, "maxLength": 70 } },
+        "complications": { "type": "array", "maxItems": 6, "items": { "type": "string", "minLength": 2, "maxLength": 70 } },
+        "working_dx": { "type": "array", "maxItems": 6, "items": { "type": "string", "minLength": 2, "maxLength": 70 } }
+      }
+    },
+    "SYMPTOMS": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["admission", "discharge"],
+      "properties": {
+        "admission": { "type": "array", "maxItems": 10, "items": { "type": "string", "minLength": 2, "maxLength": 70 } },
+        "discharge": { "type": "array", "maxItems": 10, "items": { "type": "string", "minLength": 2, "maxLength": 70 } }
+      }
+    },
+    "MEDICATIONS": { "type": "string", "maxLength": 320 },
+    "PROCEDURES": { "type": "string", "maxLength": 420 },
+    "UTILIZATION": { "type": "string", "maxLength": 420 },
+    "DISPOSITION": { "type": "string", "maxLength": 320 }
+  }
+}

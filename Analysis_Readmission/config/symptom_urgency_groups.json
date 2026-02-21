@@ -1,0 +1,206 @@
+{
+  "_meta": {
+    "version": "1.0",
+    "description": "SNOMED-CT symptom urgency groups for SYMPTOMS cluster. Maps free-text symptoms to clinical urgency categories with readmission risk weights.",
+    "notes": [
+      "Each group represents a clinical urgency category.",
+      "risk_weight (0-5) reflects urgency/impact on readmission.",
+      "severity_multiplier: severe=1.5, yes=1.0, no=0.0",
+      "Synonyms are lowercase for case-insensitive matching."
+    ]
+  },
+  "groups": [
+    {
+      "id": "respiratory_distress",
+      "name": "Respiratory Distress",
+      "snomed_ct": "267036007",
+      "risk_weight": 4,
+      "synonyms": [
+        "dyspnea", "shortness of breath", "sob",
+        "difficulty breathing", "respiratory distress",
+        "air hunger", "orthopnea",
+        "paroxysmal nocturnal dyspnea", "pnd",
+        "breathlessness", "tachypnea",
+        "labored breathing", "respiratory failure"
+      ]
+    },
+    {
+      "id": "cardiac_symptoms",
+      "name": "Cardiac Symptoms",
+      "snomed_ct": "29857009",
+      "risk_weight": 4,
+      "synonyms": [
+        "chest pain", "chest tightness", "chest pressure",
+        "angina", "palpitations", "irregular heartbeat",
+        "racing heart", "tachycardia",
+        "bradycardia", "heart racing",
+        "substernal chest pain", "precordial pain"
+      ]
+    },
+    {
+      "id": "neurological_symptoms",
+      "name": "Neurological Symptoms",
+      "snomed_ct": "102957003",
+      "risk_weight": 4,
+      "synonyms": [
+        "confusion", "altered mental status",
+        "disorientation", "lethargy", "obtunded",
+        "unresponsive", "syncope", "loss of consciousness",
+        "seizure", "convulsion", "tremor",
+        "aphasia", "dysarthria", "slurred speech",
+        "weakness", "hemiparesis", "hemiplegia",
+        "numbness", "tingling", "paresthesia",
+        "visual changes", "blurred vision", "blurry vision", "diplopia",
+        "facial droop", "delirium", "photophobia",
+        "vertigo", "ataxia", "gait instability"
+      ]
+    },
+    {
+      "id": "gi_symptoms",
+      "name": "GI Symptoms",
+      "snomed_ct": "422587007",
+      "risk_weight": 2,
+      "synonyms": [
+        "nausea", "vomiting", "emesis",
+        "abdominal pain", "abdominal distension",
+        "bloating", "diarrhea", "constipation",
+        "melena", "hematochezia", "hematemesis",
+        "blood in stool", "rectal bleeding",
+        "dysphagia", "difficulty swallowing",
+        "anorexia", "loss of appetite",
+        "early satiety", "heartburn"
+      ]
+    },
+    {
+      "id": "pain",
+      "name": "Pain (significant)",
+      "snomed_ct": "22253000",
+      "risk_weight": 2,
+      "synonyms": [
+        "pain", "severe pain", "acute pain",
+        "chronic pain", "back pain", "flank pain",
+        "headache", "migraine",
+        "joint pain", "arthralgia", "myalgia",
+        "bone pain", "neck pain",
+        "pleuritic pain", "pleurisy"
+      ]
+    },
+    {
+      "id": "fever_infection",
+      "name": "Fever / Infection Signs",
+      "snomed_ct": "386661006",
+      "risk_weight": 3,
+      "synonyms": [
+        "fever", "febrile", "chills", "rigors",
+        "night sweats", "diaphoresis", "sweats",
+        "malaise", "body aches",
+        "purulent drainage", "wound drainage"
+      ]
+    },
+    {
+      "id": "edema_fluid",
+      "name": "Edema / Fluid Overload",
+      "snomed_ct": "267038008",
+      "risk_weight": 3,
+      "synonyms": [
+        "edema", "swelling", "peripheral edema",
+        "lower extremity edema", "pitting edema",
+        "anasarca", "ascites", "fluid overload",
+        "weight gain", "pulmonary edema",
+        "pleural effusion"
+      ]
+    },
+    {
+      "id": "bleeding",
+      "name": "Bleeding / Hemorrhage",
+      "snomed_ct": "131148009",
+      "risk_weight": 4,
+      "synonyms": [
+        "bleeding", "hemorrhage",
+        "epistaxis", "hemoptysis",
+        "hematuria", "bruising", "petechiae",
+        "ecchymosis", "purpura"
+      ]
+    },
+    {
+      "id": "constitutional",
+      "name": "Constitutional Symptoms",
+      "snomed_ct": "84229001",
+      "risk_weight": 2,
+      "synonyms": [
+        "fatigue", "weakness", "generalized weakness",
+        "malaise", "lethargy", "drowsiness",
+        "weight loss", "unintentional weight loss",
+        "failure to thrive", "deconditioning",
+        "functional decline", "decreased appetite",
+        "insomnia", "sleep disturbance"
+      ]
+    },
+    {
+      "id": "cough_respiratory",
+      "name": "Cough / Upper Respiratory",
+      "snomed_ct": "49727002",
+      "risk_weight": 2,
+      "synonyms": [
+        "cough", "productive cough", "dry cough",
+        "hemoptysis", "wheezing", "stridor",
+        "sore throat", "hoarseness",
+        "nasal congestion", "rhinorrhea",
+        "sputum production",
+        "crackles", "rales", "rhonchi",
+        "hypoxia", "desaturation"
+      ]
+    },
+    {
+      "id": "skin_symptoms",
+      "name": "Skin Symptoms",
+      "snomed_ct": "95320005",
+      "risk_weight": 1,
+      "synonyms": [
+        "rash", "skin rash", "pruritus", "itching",
+        "jaundice", "pallor", "cyanosis",
+        "erythema", "urticaria", "hives",
+        "wound", "skin lesion", "skin breakdown"
+      ]
+    },
+    {
+      "id": "psychiatric_symptoms",
+      "name": "Psychiatric Symptoms",
+      "snomed_ct": "74732009",
+      "risk_weight": 3,
+      "synonyms": [
+        "anxiety", "agitation", "restlessness",
+        "hallucinations", "delusions", "paranoia",
+        "suicidal ideation", "self harm",
+        "depression", "depressed mood",
+        "mania", "hypomania",
+        "insomnia", "psychomotor agitation",
+        "psychomotor retardation"
+      ]
+    },
+    {
+      "id": "dizziness",
+      "name": "Dizziness / Presyncope",
+      "snomed_ct": "404640003",
+      "risk_weight": 2,
+      "synonyms": [
+        "dizziness", "lightheadedness",
+        "presyncope", "near syncope",
+        "unsteadiness", "disequilibrium",
+        "postural hypotension"
+      ]
+    },
+    {
+      "id": "urinary_symptoms",
+      "name": "Urinary Symptoms",
+      "snomed_ct": "249274008",
+      "risk_weight": 1,
+      "synonyms": [
+        "dysuria", "frequency", "urgency",
+        "urinary retention", "incontinence",
+        "hematuria", "oliguria", "anuria",
+        "polyuria", "nocturia"
+      ]
+    }
+  ]
+}

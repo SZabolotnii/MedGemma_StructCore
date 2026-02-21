@@ -1,0 +1,74 @@
+[
+  {
+    "arm_id": "lace_proxy",
+    "label": "LACE Proxy",
+    "track": "Track B",
+    "split": "canonical test",
+    "n_test": 9857,
+    "status": "Verified",
+    "auroc": 0.5568,
+    "ci_low": 0.5422,
+    "ci_high": 0.5714,
+    "artifact": "apps/challenge_demo/config/benchmark_public_snapshot.json (aggregated only; see apps/challenge_demo/config/public_evidence_pack.md)"
+  },
+  {
+    "arm_id": "hospital_proxy",
+    "label": "HOSPITAL Proxy",
+    "track": "Track B",
+    "split": "canonical test",
+    "n_test": 9857,
+    "status": "Verified",
+    "auroc": 0.5808,
+    "ci_low": 0.5673,
+    "ci_high": 0.5946,
+    "artifact": "apps/challenge_demo/config/benchmark_public_snapshot.json (aggregated only; see apps/challenge_demo/config/public_evidence_pack.md)"
+  },
+  {
+    "arm_id": "a0_metadata",
+    "label": "A0 Metadata",
+    "track": "Track B",
+    "split": "canonical test",
+    "n_test": 9857,
+    "status": "Verified",
+    "auroc": 0.5842,
+    "ci_low": 0.57,
+    "ci_high": 0.5982,
+    "artifact": "apps/challenge_demo/config/benchmark_public_snapshot.json (aggregated only; see apps/challenge_demo/config/public_evidence_pack.md)"
+  },
+  {
+    "arm_id": "a1_rule_engine",
+    "label": "A1 Rule Engine",
+    "track": "Track B",
+    "split": "canonical test",
+    "n_test": 9857,
+    "status": "Verified",
+    "auroc": 0.6024,
+    "ci_low": 0.5882,
+    "ci_high": 0.6167,
+    "artifact": "apps/challenge_demo/config/benchmark_public_snapshot.json (aggregated only; see apps/challenge_demo/config/public_evidence_pack.md)"
+  },
+  {
+    "arm_id": "a4_tabular_ml",
+    "label": "A4 Tabular ML",
+    "track": "Track B",
+    "split": "canonical test",
+    "n_test": 9857,
+    "status": "Verified",
+    "auroc": 0.6846,
+    "ci_low": 0.6703,
+    "ci_high": 0.6986,
+    "artifact": "apps/challenge_demo/config/benchmark_public_snapshot.json (aggregated only; see apps/challenge_demo/config/public_evidence_pack.md)"
+  },
+  {
+    "arm_id": "a3_factlevel_subset4000",
+    "label": "A3 Fact-Level",
+    "track": "Track B",
+    "split": "subset4000 test",
+    "n_test": 2800,
+    "status": "Preliminary",
+    "auroc": 0.6559,
+    "ci_low": null,
+    "ci_high": null,
+    "artifact": "apps/challenge_demo/config/benchmark_public_snapshot.json (aggregated only; see apps/challenge_demo/config/public_evidence_pack.md)"
+  }
+]

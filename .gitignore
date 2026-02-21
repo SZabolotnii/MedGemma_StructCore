@@ -1,0 +1,49 @@
+# =============================================================================
+# Data / artifacts (DO NOT COMMIT)
+# =============================================================================
+results/
+EHR_test_data/
+Curated_EHR_Test_Sets/
+Data_MIMIC/
+physionet.org/
+
+# Common extraction/run artifacts
+**/monitor/
+**/raw_stage_traces/
+**/offline_regen_hybrid/
+.dist/
+
+# Model weights / adapters
+*.gguf
+*.safetensors
+*.bin
+*.pt
+*.pth
+*.ckpt
+*.onnx
+*.h5
+
+# =============================================================================
+# Python
+# =============================================================================
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+.coverage
+.coverage.*
+htmlcov/
+
+# Virtualenvs
+.venv/
+venv/
+.env
+
+# =============================================================================
+# OS / editors
+# =============================================================================
+.DS_Store
+.idea/
+.vscode/
+*.swp

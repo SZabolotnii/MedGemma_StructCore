@@ -1,0 +1,37 @@
+[
+  {
+    "claim_id": "C01",
+    "claim": "Public repo ships aggregated benchmark snapshot (no data)",
+    "metric": "See benchmark_public_snapshot.json",
+    "status": "Verified",
+    "artifact": "apps/challenge_demo/config/benchmark_public_snapshot.json"
+  },
+  {
+    "claim_id": "C02",
+    "claim": "Public evidence pack explains what is (not) shipped",
+    "metric": "Data-free evidence pointers",
+    "status": "Verified",
+    "artifact": "apps/challenge_demo/config/public_evidence_pack.md"
+  },
+  {
+    "claim_id": "C07",
+    "claim": "Stage2 CAG (llama.cpp prompt KV cache): speedup with bit-exact output",
+    "metric": "+10.6% speedup with 0 diffs (A/B, N=200)",
+    "status": "Verified",
+    "artifact": "apps/challenge_demo/config/cag_ab_summary_public.json"
+  },
+  {
+    "claim_id": "C05",
+    "claim": "Production extraction path is DSPy-free",
+    "metric": "OpenAI-compatible runtime path",
+    "status": "Verified",
+    "artifact": "openai_compat.py"
+  },
+  {
+    "claim_id": "C06",
+    "claim": "Corrected larger-N SGR replication",
+    "metric": "N=200 corrected run",
+    "status": "Planned",
+    "artifact": "scripts/check_stage2_cag_ab_smoke.py"
+  }
+]

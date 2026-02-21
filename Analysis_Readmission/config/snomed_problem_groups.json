@@ -1,0 +1,1584 @@
+{
+  "_meta": {
+    "version": "1.0",
+    "description": "SNOMED-CT concept groups for PROBLEMS cluster. Maps free-text diagnoses to clinically meaningful groups with readmission risk weights.",
+    "notes": [
+      "Each group has a primary SNOMED-CT code, risk_weight (0-10), and synonyms for fuzzy matching.",
+      "risk_weight reflects evidence-based contribution to 30-day readmission risk.",
+      "charlson=true means the group is part of Charlson Comorbidity Index.",
+      "Synonyms are lowercase for case-insensitive matching."
+    ]
+  },
+  "groups": [
+    {
+      "id": "heart_failure",
+      "name": "Heart Failure",
+      "snomed_ct": "84114007",
+      "icd10_range": [
+        "I50"
+      ],
+      "risk_weight": 8,
+      "charlson": true,
+      "synonyms": [
+        "heart failure",
+        "congestive heart failure",
+        "chf",
+        "systolic heart failure",
+        "diastolic heart failure",
+        "hfref",
+        "hfpef",
+        "left ventricular failure",
+        "right heart failure",
+        "biventricular failure",
+        "cardiomyopathy",
+        "dilated cardiomyopathy",
+        "ischemic cardiomyopathy",
+        "nonischemic cardiomyopathy",
+        "decompensated heart failure",
+        "acute on chronic heart failure",
+        "nyha class",
+        "cardiac decompensation",
+        "reduced ejection fraction",
+        "preserved ejection fraction",
+        "diastolic dysfunction",
+        "lvef",
+        "cardiac failure",
+        "left ventricular hypertrophy",
+        "lvh",
+        "concentric hypertrophy",
+        "heart murmur",
+        "cardiac murmur"
+      ]
+    },
+    {
+      "id": "copd",
+      "name": "COPD / Chronic Lung Disease",
+      "snomed_ct": "13645005",
+      "icd10_range": [
+        "J44",
+        "J43",
+        "J42"
+      ],
+      "risk_weight": 5,
+      "charlson": true,
+      "synonyms": [
+        "copd",
+        "chronic obstructive pulmonary disease",
+        "emphysema",
+        "chronic bronchitis",
+        "copd exacerbation",
+        "acute exacerbation of copd",
+        "chronic lung disease",
+        "chronic respiratory failure",
+        "oxygen dependent",
+        "home oxygen"
+      ]
+    },
+    {
+      "id": "diabetes_uncomplicated",
+      "name": "Diabetes Mellitus (uncomplicated)",
+      "snomed_ct": "73211009",
+      "icd10_range": [
+        "E11",
+        "E10"
+      ],
+      "risk_weight": 3,
+      "charlson": true,
+      "synonyms": [
+        "diabetes",
+        "diabetes mellitus",
+        "diabetes mellitus type 2",
+        "diabetes mellitus type 1",
+        "type 2 diabetes",
+        "type 1 diabetes",
+        "dm",
+        "dm2",
+        "dm1",
+        "t2dm",
+        "t1dm",
+        "iddm",
+        "niddm",
+        "adult onset diabetes",
+        "juvenile diabetes",
+        "insulin dependent diabetes"
+      ]
+    },
+    {
+      "id": "diabetes_complicated",
+      "name": "Diabetes with Complications",
+      "snomed_ct": "368581000119106",
+      "icd10_range": [
+        "E11.2",
+        "E11.3",
+        "E11.4",
+        "E11.5",
+        "E11.6"
+      ],
+      "risk_weight": 5,
+      "charlson": true,
+      "synonyms": [
+        "diabetic nephropathy",
+        "diabetic neuropathy",
+        "diabetic retinopathy",
+        "diabetic foot",
+        "diabetic ketoacidosis",
+        "dka",
+        "diabetic ulcer",
+        "diabetic gastroparesis",
+        "diabetes with renal manifestations",
+        "diabetes with ophthalmic manifestations",
+        "hyperosmolar hyperglycemic state",
+        "hhs"
+      ]
+    },
+    {
+      "id": "ckd",
+      "name": "Chronic Kidney Disease",
+      "snomed_ct": "709044004",
+      "icd10_range": [
+        "N18"
+      ],
+      "risk_weight": 6,
+      "charlson": true,
+      "synonyms": [
+        "chronic kidney disease",
+        "ckd",
+        "chronic renal failure",
+        "chronic renal insufficiency",
+        "end stage renal disease",
+        "esrd",
+        "stage 3 ckd",
+        "stage 4 ckd",
+        "stage 5 ckd",
+        "renal failure",
+        "kidney failure",
+        "dialysis dependent",
+        "hemodialysis",
+        "peritoneal dialysis",
+        "renal transplant",
+        "nephropathy",
+        "nephrotic syndrome",
+        "end-stage renal disease"
+      ]
+    },
+    {
+      "id": "aki",
+      "name": "Acute Kidney Injury",
+      "snomed_ct": "14669001",
+      "icd10_range": [
+        "N17"
+      ],
+      "risk_weight": 5,
+      "charlson": false,
+      "synonyms": [
+        "acute kidney injury",
+        "aki",
+        "acute renal failure",
+        "acute renal insufficiency",
+        "acute tubular necrosis",
+        "atn",
+        "prerenal azotemia",
+        "contrast nephropathy"
+      ]
+    },
+    {
+      "id": "cancer_solid",
+      "name": "Cancer (solid tumor, non-metastatic)",
+      "snomed_ct": "363346000",
+      "icd10_range": [
+        "C00-C75"
+      ],
+      "risk_weight": 5,
+      "charlson": true,
+      "synonyms": [
+        "cancer",
+        "malignancy",
+        "malignant neoplasm",
+        "carcinoma",
+        "adenocarcinoma",
+        "squamous cell carcinoma",
+        "lung cancer",
+        "breast cancer",
+        "colon cancer",
+        "prostate cancer",
+        "bladder cancer",
+        "renal cell carcinoma",
+        "pancreatic cancer",
+        "hepatocellular carcinoma",
+        "ovarian cancer",
+        "cervical cancer",
+        "endometrial cancer",
+        "thyroid cancer",
+        "gastric cancer",
+        "esophageal cancer",
+        "melanoma",
+        "sarcoma",
+        "lymphoma",
+        "leukemia",
+        "non-hodgkin lymphoma",
+        "hodgkin lymphoma",
+        "multiple myeloma",
+        "myelodysplastic syndrome",
+        "myeloproliferative disorder",
+        "meningioma",
+        "glioma",
+        "brain tumor",
+        "astrocytoma",
+        "schwannoma",
+        "pheochromocytoma",
+        "benign tumor",
+        "benign neoplasm",
+        "polyp",
+        "papilloma"
+      ]
+    },
+    {
+      "id": "cancer_metastatic",
+      "name": "Metastatic Cancer",
+      "snomed_ct": "315004001",
+      "icd10_range": [
+        "C77-C80"
+      ],
+      "risk_weight": 8,
+      "charlson": true,
+      "synonyms": [
+        "metastatic",
+        "metastasis",
+        "metastases",
+        "stage iv cancer",
+        "stage 4 cancer",
+        "disseminated",
+        "advanced cancer",
+        "brain metastasis",
+        "liver metastasis",
+        "bone metastasis",
+        "lung metastasis",
+        "widespread disease",
+        "terminal cancer"
+      ]
+    },
+    {
+      "id": "liver_disease",
+      "name": "Liver Disease",
+      "snomed_ct": "235856003",
+      "icd10_range": [
+        "K70-K77"
+      ],
+      "risk_weight": 5,
+      "charlson": true,
+      "synonyms": [
+        "cirrhosis",
+        "liver cirrhosis",
+        "hepatic cirrhosis",
+        "liver failure",
+        "hepatic failure",
+        "hepatitis",
+        "hepatitis b",
+        "hepatitis c",
+        "alcoholic liver disease",
+        "nafld",
+        "nash",
+        "nonalcoholic fatty liver disease",
+        "nonalcoholic steatohepatitis",
+        "portal hypertension",
+        "esophageal varices",
+        "hepatic encephalopathy",
+        "ascites",
+        "hepatorenal syndrome",
+        "liver transplant",
+        "transaminitis",
+        "elevated liver enzymes",
+        "elevated transaminases",
+        "alt elevation",
+        "ast elevation"
+      ]
+    },
+    {
+      "id": "cva_stroke",
+      "name": "Cerebrovascular Disease / Stroke",
+      "snomed_ct": "62914000",
+      "icd10_range": [
+        "I60-I69"
+      ],
+      "risk_weight": 4,
+      "charlson": true,
+      "synonyms": [
+        "stroke",
+        "cerebrovascular accident",
+        "cva",
+        "ischemic stroke",
+        "hemorrhagic stroke",
+        "transient ischemic attack",
+        "tia",
+        "cerebral infarction",
+        "intracranial hemorrhage",
+        "subarachnoid hemorrhage",
+        "subdural hematoma",
+        "carotid stenosis",
+        "vertebrobasilar insufficiency",
+        "cerebrovascular disease",
+        "carotid artery stenosis",
+        "bell's palsy",
+        "facial palsy",
+        "cerebral aneurysm",
+        "intracranial aneurysm",
+        "aneurysm clipping"
+      ]
+    },
+    {
+      "id": "mi_ihd",
+      "name": "Myocardial Infarction / Ischemic Heart Disease",
+      "snomed_ct": "22298006",
+      "icd10_range": [
+        "I21",
+        "I25"
+      ],
+      "risk_weight": 5,
+      "charlson": true,
+      "synonyms": [
+        "myocardial infarction",
+        "mi",
+        "heart attack",
+        "stemi",
+        "nstemi",
+        "acute coronary syndrome",
+        "acs",
+        "coronary artery disease",
+        "cad",
+        "unstable angina",
+        "angina pectoris",
+        "angina",
+        "triple vessel disease",
+        "left main disease",
+        "coronary occlusion",
+        "coronary thrombosis",
+        "ischemic heart disease",
+        "ihd",
+        "chest pain",
+        "angina equivalent",
+        "troponin elevation"
+      ]
+    },
+    {
+      "id": "atrial_fibrillation",
+      "name": "Atrial Fibrillation / Arrhythmia",
+      "snomed_ct": "49436004",
+      "icd10_range": [
+        "I48"
+      ],
+      "risk_weight": 3,
+      "charlson": false,
+      "synonyms": [
+        "atrial fibrillation",
+        "afib",
+        "a-fib",
+        "atrial flutter",
+        "supraventricular tachycardia",
+        "svt",
+        "ventricular tachycardia",
+        "vtach",
+        "ventricular fibrillation",
+        "vfib",
+        "arrhythmia",
+        "cardiac arrhythmia",
+        "sick sinus syndrome",
+        "bradycardia",
+        "heart block",
+        "av block",
+        "bundle branch block",
+        "prolonged qt",
+        "wolff-parkinson-white",
+        "wpw",
+        "paroxysmal atrial fibrillation",
+        "atrial tachycardia",
+        "palpitations",
+        "tachyarrhythmia",
+        "pacing",
+        "pacemaker"
+      ]
+    },
+    {
+      "id": "pvd",
+      "name": "Peripheral Vascular Disease",
+      "snomed_ct": "400047006",
+      "icd10_range": [
+        "I73"
+      ],
+      "risk_weight": 3,
+      "charlson": true,
+      "synonyms": [
+        "peripheral vascular disease",
+        "pvd",
+        "peripheral artery disease",
+        "pad",
+        "claudication",
+        "intermittent claudication",
+        "critical limb ischemia",
+        "gangrene",
+        "aortic aneurysm",
+        "abdominal aortic aneurysm",
+        "aaa",
+        "thoracic aortic aneurysm",
+        "aortic dissection",
+        "varicose veins",
+        "venous insufficiency",
+        "chronic venous insufficiency"
+      ]
+    },
+    {
+      "id": "vte",
+      "name": "Venous Thromboembolism",
+      "snomed_ct": "111293003",
+      "icd10_range": [
+        "I26",
+        "I82"
+      ],
+      "risk_weight": 4,
+      "charlson": false,
+      "synonyms": [
+        "pulmonary embolism",
+        "pe",
+        "dvt",
+        "deep vein thrombosis",
+        "deep venous thrombosis",
+        "venous thromboembolism",
+        "vte",
+        "saddle embolus",
+        "submassive pe",
+        "massive pe",
+        "iliac vein thrombosis",
+        "portal vein thrombosis",
+        "thrombophilia",
+        "hypercoagulable state",
+        "antiphospholipid syndrome"
+      ]
+    },
+    {
+      "id": "hypertension",
+      "name": "Hypertension",
+      "snomed_ct": "38341003",
+      "icd10_range": [
+        "I10-I15"
+      ],
+      "risk_weight": 2,
+      "charlson": false,
+      "synonyms": [
+        "hypertension",
+        "htn",
+        "high blood pressure",
+        "essential hypertension",
+        "malignant hypertension",
+        "hypertensive emergency",
+        "hypertensive urgency",
+        "resistant hypertension",
+        "secondary hypertension",
+        "pulmonary hypertension",
+        "pulmonary arterial hypertension"
+      ]
+    },
+    {
+      "id": "valvular",
+      "name": "Valvular Heart Disease",
+      "snomed_ct": "368009",
+      "icd10_range": [
+        "I34-I37"
+      ],
+      "risk_weight": 3,
+      "charlson": false,
+      "synonyms": [
+        "aortic stenosis",
+        "aortic valve stenosis",
+        "aortic regurgitation",
+        "aortic insufficiency",
+        "mitral stenosis",
+        "mitral regurgitation",
+        "mitral valve prolapse",
+        "tricuspid regurgitation",
+        "valve replacement",
+        "prosthetic valve",
+        "bioprosthetic valve",
+        "mechanical valve",
+        "endocarditis",
+        "infective endocarditis"
+      ]
+    },
+    {
+      "id": "dementia",
+      "name": "Dementia / Cognitive Decline",
+      "snomed_ct": "52448006",
+      "icd10_range": [
+        "F00-F03",
+        "G30"
+      ],
+      "risk_weight": 4,
+      "charlson": true,
+      "synonyms": [
+        "dementia",
+        "alzheimer",
+        "alzheimer's disease",
+        "vascular dementia",
+        "lewy body dementia",
+        "frontotemporal dementia",
+        "cognitive decline",
+        "cognitive impairment",
+        "mild cognitive impairment",
+        "mci",
+        "memory loss",
+        "encephalopathy",
+        "delirium",
+        "sundowning"
+      ]
+    },
+    {
+      "id": "depression",
+      "name": "Depression / Mood Disorders",
+      "snomed_ct": "35489007",
+      "icd10_range": [
+        "F32",
+        "F33",
+        "F31"
+      ],
+      "risk_weight": 3,
+      "charlson": false,
+      "synonyms": [
+        "depression",
+        "major depressive disorder",
+        "mdd",
+        "bipolar disorder",
+        "bipolar",
+        "bipolar i",
+        "bipolar ii",
+        "dysthymia",
+        "persistent depressive disorder",
+        "mood disorder",
+        "adjustment disorder",
+        "postpartum depression",
+        "seasonal affective disorder",
+        "treatment resistant depression"
+      ]
+    },
+    {
+      "id": "psychosis",
+      "name": "Psychotic Disorders",
+      "snomed_ct": "69322001",
+      "icd10_range": [
+        "F20-F29"
+      ],
+      "risk_weight": 4,
+      "charlson": false,
+      "synonyms": [
+        "schizophrenia",
+        "schizoaffective disorder",
+        "psychosis",
+        "psychotic disorder",
+        "paranoid schizophrenia",
+        "catatonia",
+        "delusional disorder",
+        "brief psychotic disorder"
+      ]
+    },
+    {
+      "id": "anxiety",
+      "name": "Anxiety Disorders",
+      "snomed_ct": "197480006",
+      "icd10_range": [
+        "F40",
+        "F41"
+      ],
+      "risk_weight": 2,
+      "charlson": false,
+      "synonyms": [
+        "anxiety",
+        "generalized anxiety disorder",
+        "gad",
+        "panic disorder",
+        "panic attack",
+        "social anxiety",
+        "agoraphobia",
+        "phobia",
+        "ptsd",
+        "post-traumatic stress disorder",
+        "obsessive compulsive disorder",
+        "ocd",
+        "posttraumatic stress disorder",
+        "post traumatic stress disorder",
+        "adhd",
+        "attention deficit hyperactivity disorder",
+        "attention deficit disorder"
+      ]
+    },
+    {
+      "id": "substance_abuse",
+      "name": "Substance Abuse / Dependence",
+      "snomed_ct": "66214007",
+      "icd10_range": [
+        "F10-F19"
+      ],
+      "risk_weight": 5,
+      "charlson": false,
+      "synonyms": [
+        "alcohol abuse",
+        "alcohol dependence",
+        "alcoholism",
+        "alcohol withdrawal",
+        "alcohol use disorder",
+        "drug abuse",
+        "substance abuse",
+        "substance use disorder",
+        "opioid dependence",
+        "opioid use disorder",
+        "cocaine abuse",
+        "cocaine dependence",
+        "benzodiazepine dependence",
+        "polysubstance abuse",
+        "drug overdose",
+        "heroin abuse",
+        "methamphetamine abuse",
+        "cannabis use disorder",
+        "tobacco use disorder",
+        "nicotine dependence",
+        "intravenous drug use",
+        "ivdu",
+        "tobacco abuse",
+        "smoking",
+        "tobacco dependence",
+        "tobacco use"
+      ]
+    },
+    {
+      "id": "sepsis",
+      "name": "Sepsis / Severe Infection",
+      "snomed_ct": "91302008",
+      "icd10_range": [
+        "A40",
+        "A41",
+        "R65.2"
+      ],
+      "risk_weight": 6,
+      "charlson": false,
+      "synonyms": [
+        "sepsis",
+        "severe sepsis",
+        "septic shock",
+        "bacteremia",
+        "fungemia",
+        "urosepsis",
+        "septicemia",
+        "systemic inflammatory response",
+        "sirs",
+        "blood stream infection",
+        "bsi"
+      ]
+    },
+    {
+      "id": "pneumonia",
+      "name": "Pneumonia / Lower Respiratory Infection",
+      "snomed_ct": "233604007",
+      "icd10_range": [
+        "J12-J18"
+      ],
+      "risk_weight": 4,
+      "charlson": false,
+      "synonyms": [
+        "pneumonia",
+        "community acquired pneumonia",
+        "cap",
+        "hospital acquired pneumonia",
+        "hap",
+        "ventilator associated pneumonia",
+        "vap",
+        "aspiration pneumonia",
+        "aspiration",
+        "lung abscess",
+        "empyema",
+        "bronchopneumonia",
+        "lobar pneumonia",
+        "respiratory infection",
+        "lower respiratory tract infection",
+        "sinusitis",
+        "upper respiratory infection",
+        "bronchitis",
+        "acute bronchitis"
+      ]
+    },
+    {
+      "id": "uti",
+      "name": "Urinary Tract Infection",
+      "snomed_ct": "68566005",
+      "icd10_range": [
+        "N39.0"
+      ],
+      "risk_weight": 2,
+      "charlson": false,
+      "synonyms": [
+        "urinary tract infection",
+        "uti",
+        "pyelonephritis",
+        "cystitis",
+        "urosepsis",
+        "catheter associated uti",
+        "cauti"
+      ]
+    },
+    {
+      "id": "gi_bleed",
+      "name": "GI Hemorrhage",
+      "snomed_ct": "74474003",
+      "icd10_range": [
+        "K92.0",
+        "K92.1",
+        "K92.2"
+      ],
+      "risk_weight": 5,
+      "charlson": false,
+      "synonyms": [
+        "gastrointestinal hemorrhage",
+        "gi bleed",
+        "gi bleeding",
+        "upper gi bleed",
+        "lower gi bleed",
+        "melena",
+        "hematochezia",
+        "hematemesis",
+        "variceal bleeding",
+        "peptic ulcer bleeding",
+        "diverticular bleeding",
+        "rectal bleeding",
+        "gastrointestinal bleeding",
+        "gi hemorrhage"
+      ]
+    },
+    {
+      "id": "gi_disease",
+      "name": "GI Disease (non-hemorrhage)",
+      "snomed_ct": "119292006",
+      "icd10_range": [
+        "K00-K93"
+      ],
+      "risk_weight": 2,
+      "charlson": false,
+      "synonyms": [
+        "gastroesophageal reflux disease",
+        "gerd",
+        "peptic ulcer",
+        "gastric ulcer",
+        "duodenal ulcer",
+        "crohn's disease",
+        "crohn disease",
+        "ulcerative colitis",
+        "inflammatory bowel disease",
+        "ibd",
+        "diverticulitis",
+        "diverticulosis",
+        "pancreatitis",
+        "acute pancreatitis",
+        "chronic pancreatitis",
+        "cholecystitis",
+        "cholelithiasis",
+        "gallstones",
+        "cholangitis",
+        "bowel obstruction",
+        "small bowel obstruction",
+        "ileus",
+        "celiac disease",
+        "gastroparesis",
+        "hiatal hernia",
+        "esophagitis",
+        "irritable bowel syndrome",
+        "ibs",
+        "clostridium difficile",
+        "c diff",
+        "c. difficile",
+        "appendicitis",
+        "peritonitis",
+        "constipation",
+        "chronic constipation",
+        "gastritis",
+        "hemorrhoids",
+        "dysphagia",
+        "nausea",
+        "esophageal stricture",
+        "colon polyps",
+        "choledocholithiasis",
+        "common bile duct stone",
+        "helicobacter pylori",
+        "h pylori",
+        "diarrhea",
+        "vomiting",
+        "abdominal pain",
+        "colonic polyp",
+        "rectal polyp",
+        "barrett's esophagus",
+        "biliary colic",
+        "gastroenteritis",
+        "food poisoning",
+        "colitis"
+      ]
+    },
+    {
+      "id": "anemia",
+      "name": "Anemia (chronic)",
+      "snomed_ct": "271737000",
+      "icd10_range": [
+        "D50-D64"
+      ],
+      "risk_weight": 3,
+      "charlson": false,
+      "synonyms": [
+        "anemia",
+        "iron deficiency anemia",
+        "anemia of chronic disease",
+        "chronic anemia",
+        "megaloblastic anemia",
+        "b12 deficiency",
+        "folate deficiency",
+        "pancytopenia",
+        "aplastic anemia",
+        "hemolytic anemia",
+        "sickle cell disease",
+        "sickle cell anemia",
+        "thalassemia",
+        "myelodysplastic syndrome"
+      ]
+    },
+    {
+      "id": "coagulopathy",
+      "name": "Coagulopathy / Bleeding Disorder",
+      "snomed_ct": "234466008",
+      "icd10_range": [
+        "D65-D69"
+      ],
+      "risk_weight": 4,
+      "charlson": false,
+      "synonyms": [
+        "thrombocytopenia",
+        "coagulopathy",
+        "dic",
+        "disseminated intravascular coagulation",
+        "heparin induced thrombocytopenia",
+        "hit",
+        "immune thrombocytopenic purpura",
+        "itp",
+        "von willebrand disease",
+        "hemophilia",
+        "anticoagulant related bleeding"
+      ]
+    },
+    {
+      "id": "obesity",
+      "name": "Obesity",
+      "snomed_ct": "414916001",
+      "icd10_range": [
+        "E66"
+      ],
+      "risk_weight": 2,
+      "charlson": false,
+      "synonyms": [
+        "obesity",
+        "morbid obesity",
+        "severe obesity",
+        "obese",
+        "bmi over 30",
+        "bmi over 40",
+        "class iii obesity",
+        "bariatric"
+      ]
+    },
+    {
+      "id": "thyroid",
+      "name": "Thyroid Disorders",
+      "snomed_ct": "14304000",
+      "icd10_range": [
+        "E00-E07"
+      ],
+      "risk_weight": 1,
+      "charlson": false,
+      "synonyms": [
+        "hypothyroidism",
+        "hyperthyroidism",
+        "thyroid disease",
+        "hashimoto",
+        "graves disease",
+        "thyroiditis",
+        "thyroid nodule",
+        "thyroid cancer",
+        "myxedema",
+        "thyroid storm",
+        "hyperparathyroidism",
+        "hypoparathyroidism",
+        "parathyroid disease"
+      ]
+    },
+    {
+      "id": "asthma",
+      "name": "Asthma",
+      "snomed_ct": "195967001",
+      "icd10_range": [
+        "J45"
+      ],
+      "risk_weight": 2,
+      "charlson": false,
+      "synonyms": [
+        "asthma",
+        "asthma exacerbation",
+        "acute asthma",
+        "status asthmaticus",
+        "reactive airway disease",
+        "bronchospasm",
+        "exercise induced asthma",
+        "allergic asthma"
+      ]
+    },
+    {
+      "id": "osa",
+      "name": "Obstructive Sleep Apnea",
+      "snomed_ct": "78275009",
+      "icd10_range": [
+        "G47.33"
+      ],
+      "risk_weight": 2,
+      "charlson": false,
+      "synonyms": [
+        "obstructive sleep apnea",
+        "osa",
+        "sleep apnea",
+        "central sleep apnea",
+        "sleep disordered breathing",
+        "cpap dependent"
+      ]
+    },
+    {
+      "id": "seizure",
+      "name": "Seizure Disorder / Epilepsy",
+      "snomed_ct": "84757009",
+      "icd10_range": [
+        "G40"
+      ],
+      "risk_weight": 3,
+      "charlson": false,
+      "synonyms": [
+        "seizure disorder",
+        "epilepsy",
+        "seizure",
+        "status epilepticus",
+        "convulsion",
+        "tonic-clonic seizure",
+        "grand mal seizure",
+        "focal seizure",
+        "absence seizure",
+        "breakthrough seizure",
+        "vertigo",
+        "dizziness",
+        "syncope",
+        "presyncope",
+        "ataxia",
+        "cerebellar ataxia",
+        "gait instability"
+      ]
+    },
+    {
+      "id": "falls_fracture",
+      "name": "Falls / Fracture",
+      "snomed_ct": "217082002",
+      "icd10_range": [
+        "W00-W19",
+        "S72"
+      ],
+      "risk_weight": 3,
+      "charlson": false,
+      "synonyms": [
+        "fall",
+        "falls",
+        "mechanical fall",
+        "fracture",
+        "hip fracture",
+        "femur fracture",
+        "vertebral fracture",
+        "compression fracture",
+        "rib fracture",
+        "pelvic fracture",
+        "pathologic fracture",
+        "fragility fracture"
+      ]
+    },
+    {
+      "id": "wound_infection",
+      "name": "Wound / Skin Infection",
+      "snomed_ct": "128045006",
+      "icd10_range": [
+        "L00-L08"
+      ],
+      "risk_weight": 3,
+      "charlson": false,
+      "synonyms": [
+        "cellulitis",
+        "abscess",
+        "wound infection",
+        "surgical site infection",
+        "ssi",
+        "osteomyelitis",
+        "necrotizing fasciitis",
+        "pressure ulcer",
+        "pressure injury",
+        "decubitus",
+        "diabetic foot infection",
+        "skin infection",
+        "mucositis",
+        "oral mucositis",
+        "stomatitis",
+        "discitis",
+        "vertebral discitis",
+        "spinal infection"
+      ]
+    },
+    {
+      "id": "electrolyte",
+      "name": "Electrolyte Disorders",
+      "snomed_ct": "237840007",
+      "icd10_range": [
+        "E87"
+      ],
+      "risk_weight": 3,
+      "charlson": false,
+      "synonyms": [
+        "hyponatremia",
+        "hypernatremia",
+        "hypokalemia",
+        "hyperkalemia",
+        "hypocalcemia",
+        "hypercalcemia",
+        "hypomagnesemia",
+        "hypermagnesemia",
+        "hypophosphatemia",
+        "metabolic acidosis",
+        "metabolic alkalosis",
+        "electrolyte imbalance",
+        "electrolyte abnormality",
+        "hyperglycemia",
+        "hypoglycemia",
+        "lactic acidosis"
+      ]
+    },
+    {
+      "id": "malnutrition",
+      "name": "Malnutrition / Failure to Thrive",
+      "snomed_ct": "248325000",
+      "icd10_range": [
+        "E40-E46",
+        "R62"
+      ],
+      "risk_weight": 4,
+      "charlson": false,
+      "synonyms": [
+        "malnutrition",
+        "protein calorie malnutrition",
+        "cachexia",
+        "failure to thrive",
+        "kwashiorkor",
+        "marasmus",
+        "severe malnutrition",
+        "nutritional deficiency",
+        "sarcopenia",
+        "wasting"
+      ]
+    },
+    {
+      "id": "connective_tissue",
+      "name": "Connective Tissue / Autoimmune Disease",
+      "snomed_ct": "105969002",
+      "icd10_range": [
+        "M30-M36"
+      ],
+      "risk_weight": 3,
+      "charlson": true,
+      "synonyms": [
+        "rheumatoid arthritis",
+        "lupus",
+        "systemic lupus erythematosus",
+        "sle",
+        "scleroderma",
+        "vasculitis",
+        "polymyalgia rheumatica",
+        "dermatomyositis",
+        "polymyositis",
+        "sjogren syndrome",
+        "mixed connective tissue disease",
+        "ankylosing spondylitis",
+        "multiple sclerosis",
+        "ms",
+        "psoriasis",
+        "psoriatic arthritis"
+      ]
+    },
+    {
+      "id": "hiv_aids",
+      "name": "HIV / AIDS",
+      "snomed_ct": "86406008",
+      "icd10_range": [
+        "B20-B24"
+      ],
+      "risk_weight": 4,
+      "charlson": true,
+      "synonyms": [
+        "hiv",
+        "aids",
+        "human immunodeficiency virus",
+        "acquired immunodeficiency syndrome",
+        "hiv positive",
+        "hiv infection"
+      ]
+    },
+    {
+      "id": "transplant",
+      "name": "Organ Transplant",
+      "snomed_ct": "77465005",
+      "icd10_range": [
+        "Z94"
+      ],
+      "risk_weight": 5,
+      "charlson": false,
+      "synonyms": [
+        "transplant",
+        "organ transplant",
+        "kidney transplant",
+        "liver transplant",
+        "heart transplant",
+        "lung transplant",
+        "bone marrow transplant",
+        "stem cell transplant",
+        "graft versus host disease",
+        "gvhd",
+        "transplant rejection",
+        "immunosuppression"
+      ]
+    },
+    {
+      "id": "hyperlipidemia",
+      "name": "Hyperlipidemia",
+      "snomed_ct": "55822004",
+      "icd10_range": [
+        "E78"
+      ],
+      "risk_weight": 1,
+      "charlson": false,
+      "synonyms": [
+        "hyperlipidemia",
+        "hypercholesterolemia",
+        "dyslipidemia",
+        "high cholesterol",
+        "hypertriglyceridemia",
+        "mixed hyperlipidemia"
+      ]
+    },
+    {
+      "id": "bph_urological",
+      "name": "BPH / Urological",
+      "snomed_ct": "266569009",
+      "icd10_range": [
+        "N40"
+      ],
+      "risk_weight": 1,
+      "charlson": false,
+      "synonyms": [
+        "benign prostatic hyperplasia",
+        "bph",
+        "benign prostatic hypertrophy",
+        "urinary retention",
+        "urinary incontinence",
+        "overactive bladder",
+        "neurogenic bladder",
+        "nephrolithiasis",
+        "kidney stone",
+        "renal calculus",
+        "ureteral stone",
+        "hydronephrosis",
+        "hematuria",
+        "gross hematuria",
+        "microscopic hematuria",
+        "uterine fibroids",
+        "endometriosis",
+        "ovarian cyst",
+        "renal stone",
+        "urolithiasis",
+        "bladder stone"
+      ]
+    },
+    {
+      "id": "osteoarthritis",
+      "name": "Osteoarthritis / Degenerative Joint",
+      "snomed_ct": "396275006",
+      "icd10_range": [
+        "M15-M19"
+      ],
+      "risk_weight": 1,
+      "charlson": false,
+      "synonyms": [
+        "osteoarthritis",
+        "degenerative joint disease",
+        "djd",
+        "joint replacement",
+        "knee replacement",
+        "hip replacement",
+        "total knee arthroplasty",
+        "total hip arthroplasty",
+        "spinal stenosis",
+        "cervical spondylosis",
+        "lumbar spondylosis",
+        "degenerative disc disease",
+        "herniated disc",
+        "scoliosis",
+        "kyphosis",
+        "spinal deformity",
+        "plantar fasciitis",
+        "tendinitis",
+        "bursitis",
+        "rotator cuff"
+      ]
+    },
+    {
+      "id": "osteoporosis",
+      "name": "Osteoporosis",
+      "snomed_ct": "64859006",
+      "icd10_range": [
+        "M80-M81"
+      ],
+      "risk_weight": 2,
+      "charlson": false,
+      "synonyms": [
+        "osteoporosis",
+        "osteopenia",
+        "low bone density",
+        "bone loss",
+        "vitamin d deficiency"
+      ]
+    },
+    {
+      "id": "gout",
+      "name": "Gout / Crystal Arthropathy",
+      "snomed_ct": "90560007",
+      "icd10_range": [
+        "M10"
+      ],
+      "risk_weight": 1,
+      "charlson": false,
+      "synonyms": [
+        "gout",
+        "gouty arthritis",
+        "gout flare",
+        "pseudogout",
+        "calcium pyrophosphate",
+        "crystal arthropathy",
+        "hyperuricemia"
+      ]
+    },
+    {
+      "id": "migraine",
+      "name": "Migraine / Headache Disorders",
+      "snomed_ct": "37796009",
+      "icd10_range": [
+        "G43"
+      ],
+      "risk_weight": 1,
+      "charlson": false,
+      "synonyms": [
+        "migraine",
+        "migraine with aura",
+        "migraine without aura",
+        "chronic migraine",
+        "tension headache",
+        "cluster headache"
+      ]
+    },
+    {
+      "id": "glaucoma",
+      "name": "Glaucoma / Eye Disease",
+      "snomed_ct": "23986001",
+      "icd10_range": [
+        "H40"
+      ],
+      "risk_weight": 1,
+      "charlson": false,
+      "synonyms": [
+        "glaucoma",
+        "open angle glaucoma",
+        "angle closure glaucoma",
+        "macular degeneration",
+        "cataracts",
+        "diabetic retinopathy",
+        "retinal detachment",
+        "blindness",
+        "vision loss",
+        "visual impairment",
+        "macular hole"
+      ]
+    },
+    {
+      "id": "peripheral_neuropathy",
+      "name": "Peripheral Neuropathy",
+      "snomed_ct": "302226006",
+      "icd10_range": [
+        "G60-G64"
+      ],
+      "risk_weight": 2,
+      "charlson": false,
+      "synonyms": [
+        "peripheral neuropathy",
+        "neuropathy",
+        "polyneuropathy",
+        "mononeuropathy",
+        "carpal tunnel",
+        "radiculopathy",
+        "sciatica",
+        "nerve entrapment",
+        "foot drop",
+        "peroneal neuropathy",
+        "hearing loss",
+        "sensorineural hearing loss",
+        "hard of hearing",
+        "hearing impairment",
+        "deafness",
+        "tinnitus"
+      ]
+    },
+    {
+      "id": "pleural_respiratory",
+      "name": "Pleural / Pulmonary Effusion",
+      "snomed_ct": "60046008",
+      "icd10_range": [
+        "J90",
+        "J91"
+      ],
+      "risk_weight": 3,
+      "charlson": false,
+      "synonyms": [
+        "pleural effusion",
+        "pulmonary edema",
+        "pulmonary effusion",
+        "hydrothorax",
+        "empyema",
+        "hemothorax",
+        "pneumothorax",
+        "pleurisy",
+        "pulmonary fibrosis",
+        "interstitial lung disease",
+        "bronchiectasis",
+        "atelectasis",
+        "pulmonary nodule",
+        "lung nodule",
+        "pericardial effusion",
+        "pericarditis",
+        "pericardial tamponade"
+      ]
+    },
+    {
+      "id": "hypotension_shock",
+      "name": "Hypotension / Shock",
+      "snomed_ct": "45007003",
+      "icd10_range": [
+        "I95",
+        "R57"
+      ],
+      "risk_weight": 4,
+      "charlson": false,
+      "synonyms": [
+        "hypotension",
+        "orthostatic hypotension",
+        "postural hypotension",
+        "shock",
+        "cardiogenic shock",
+        "hypovolemic shock",
+        "distributive shock",
+        "hemorrhagic shock",
+        "vasopressor dependent",
+        "vasovagal",
+        "neurocardiogenic syncope"
+      ]
+    },
+    {
+      "id": "chronic_pain",
+      "name": "Chronic Pain Syndrome",
+      "snomed_ct": "82423001",
+      "icd10_range": [
+        "G89"
+      ],
+      "risk_weight": 2,
+      "charlson": false,
+      "synonyms": [
+        "chronic pain",
+        "chronic back pain",
+        "chronic low back pain",
+        "fibromyalgia",
+        "complex regional pain syndrome",
+        "crps",
+        "neuropathic pain",
+        "chronic headache",
+        "chronic neck pain",
+        "back pain",
+        "low back pain",
+        "neck pain",
+        "joint pain"
+      ]
+    },
+    {
+      "id": "hernia",
+      "name": "Hernia",
+      "snomed_ct": "414403008",
+      "icd10_range": [
+        "K40-K46"
+      ],
+      "risk_weight": 1,
+      "charlson": false,
+      "synonyms": [
+        "hernia",
+        "inguinal hernia",
+        "umbilical hernia",
+        "incisional hernia",
+        "ventral hernia",
+        "hiatal hernia",
+        "femoral hernia",
+        "paraesophageal hernia"
+      ]
+    },
+    {
+      "id": "hematologic_abnormality",
+      "name": "Hematologic Abnormalities",
+      "snomed_ct": "414022008",
+      "icd10_range": [
+        "D70-D77"
+      ],
+      "risk_weight": 2,
+      "charlson": false,
+      "synonyms": [
+        "leukocytosis",
+        "lymphadenopathy",
+        "neutropenia",
+        "agranulocytosis",
+        "lymphopenia",
+        "eosinophilia",
+        "splenomegaly",
+        "lymphoma",
+        "monoclonal gammopathy",
+        "polycythemia",
+        "thrombocytosis",
+        "elevated wbc"
+      ]
+    },
+    {
+      "id": "sleep_insomnia",
+      "name": "Sleep / Insomnia Disorders",
+      "snomed_ct": "193462001",
+      "icd10_range": [
+        "G47"
+      ],
+      "risk_weight": 1,
+      "charlson": false,
+      "synonyms": [
+        "insomnia",
+        "sleep disorder",
+        "restless leg syndrome",
+        "narcolepsy",
+        "parasomnia"
+      ]
+    },
+    {
+      "id": "allergy_immunology",
+      "name": "Allergy / Immunological",
+      "snomed_ct": "419076005",
+      "icd10_range": [
+        "J30",
+        "T78"
+      ],
+      "risk_weight": 1,
+      "charlson": false,
+      "synonyms": [
+        "allergic rhinitis",
+        "allergy",
+        "allergies",
+        "drug allergy",
+        "food allergy",
+        "anaphylaxis",
+        "angioedema",
+        "urticaria",
+        "eczema",
+        "dermatitis",
+        "atopic dermatitis",
+        "contact dermatitis",
+        "psoriasis",
+        "hirsutism",
+        "alopecia areata"
+      ]
+    },
+    {
+      "id": "fever_infection",
+      "name": "Fever / Systemic Infection",
+      "snomed_ct": "386661006",
+      "icd10_range": [
+        "R50"
+      ],
+      "risk_weight": 2,
+      "charlson": false,
+      "synonyms": [
+        "fever",
+        "febrile",
+        "pyrexia",
+        "chills",
+        "rigors",
+        "night sweats",
+        "infection",
+        "viral infection",
+        "bacterial infection",
+        "mumps",
+        "measles",
+        "chickenpox",
+        "shingles",
+        "herpes zoster",
+        "herpes simplex"
+      ]
+    },
+    {
+      "id": "pregnancy_ob",
+      "name": "Pregnancy / Obstetric",
+      "snomed_ct": "77386006",
+      "icd10_range": [
+        "O00-O99"
+      ],
+      "risk_weight": 1,
+      "charlson": false,
+      "synonyms": [
+        "pregnancy",
+        "pregnant",
+        "preeclampsia",
+        "eclampsia",
+        "gestational diabetes",
+        "preterm labor",
+        "cesarean section",
+        "postpartum",
+        "ectopic pregnancy",
+        "miscarriage"
+      ]
+    },
+    {
+      "id": "skin_dermatologic",
+      "name": "Dermatologic / Skin Conditions",
+      "snomed_ct": "95320005",
+      "icd10_range": [
+        "L00-L99"
+      ],
+      "risk_weight": 1,
+      "charlson": false,
+      "synonyms": [
+        "rash",
+        "skin lesion",
+        "pruritus",
+        "alopecia",
+        "acne",
+        "wound",
+        "laceration",
+        "burn",
+        "skin graft",
+        "basal cell carcinoma",
+        "squamous cell carcinoma skin"
+      ]
+    }
+  ]
+}

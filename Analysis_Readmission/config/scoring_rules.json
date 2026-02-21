@@ -1,0 +1,1462 @@
+{
+  "_meta": {
+    "version": "1.0",
+    "description": "Complete scoring rules for all 9 ONTOLOGY clusters. Each cluster has range-based or categorical scoring with evidence-based weights.",
+    "max_theoretical_scores": {
+      "DEMOGRAPHICS": 10,
+      "VITALS": 25,
+      "LABS": 30,
+      "PROBLEMS": 40,
+      "SYMPTOMS": 15,
+      "MEDICATIONS": 15,
+      "PROCEDURES": 15,
+      "UTILIZATION": 20,
+      "DISPOSITION": 15,
+      "INTERACTIONS": 30,
+      "TOTAL_THEORETICAL_MAX": 215
+    },
+    "calibration": {
+      "description": "Logistic transform: P = 1 / (1 + exp(-(alpha + beta * score)))",
+      "alpha": -2.3475,
+      "beta": 0.017,
+      "baseline_readmission_rate": 0.2069,
+      "notes": "Calibrated on 203 MIMIC-IV admissions (8 clusters, FHIR labels, SNOMED v2). AUC=0.5555."
+    },
+    "risk_categories": [
+      {
+        "name": "Low",
+        "score_min": 0,
+        "score_max": 19,
+        "probability_range": "<12%",
+        "color": "green"
+      },
+      {
+        "name": "Medium",
+        "score_min": 20,
+        "score_max": 39,
+        "probability_range": "12-16%",
+        "color": "yellow"
+      },
+      {
+        "name": "High",
+        "score_min": 40,
+        "score_max": 59,
+        "probability_range": "16-21%",
+        "color": "orange"
+      },
+      {
+        "name": "Critical",
+        "score_min": 60,
+        "score_max": 999,
+        "probability_range": ">21%",
+        "color": "red"
+      }
+    ]
+  },
+  "DEMOGRAPHICS": {
+    "max_score": 10,
+    "keywords": {
+      "Age": {
+        "type": "range",
+        "ranges": [
+          {
+            "min": 0,
+            "max": 39,
+            "score": 0,
+            "label": "Young adult"
+          },
+          {
+            "min": 40,
+            "max": 54,
+            "score": 1,
+            "label": "Middle age"
+          },
+          {
+            "min": 55,
+            "max": 64,
+            "score": 2,
+            "label": "Pre-elderly"
+          },
+          {
+            "min": 65,
+            "max": 74,
+            "score": 4,
+            "label": "Young elderly"
+          },
+          {
+            "min": 75,
+            "max": 84,
+            "score": 6,
+            "label": "Old elderly"
+          },
+          {
+            "min": 85,
+            "max": 999,
+            "score": 8,
+            "label": "Very old"
+          }
+        ],
+        "missing_score": 2,
+        "evidence": "Age >65 is consistently associated with higher readmission (OR 1.3-1.8)"
+      },
+      "Sex": {
+        "type": "categorical",
+        "values": {
+          "male": 1,
+          "female": 0
+        },
+        "missing_score": 0,
+        "evidence": "Male sex associated with slightly higher 30-day readmission (OR ~1.1)"
+      }
+    }
+  },
+  "VITALS": {
+    "max_score": 25,
+    "keywords": {
+      "Heart Rate": {
+        "type": "range",
+        "unit": "bpm",
+        "ranges": [
+          {
+            "min": 0,
+            "max": 49,
+            "score": 3,
+            "label": "Severe bradycardia"
+          },
+          {
+            "min": 50,
+            "max": 59,
+            "score": 1,
+            "label": "Mild bradycardia"
+          },
+          {
+            "min": 60,
+            "max": 100,
+            "score": 0,
+            "label": "Normal"
+          },
+          {
+            "min": 101,
+            "max": 110,
+            "score": 1,
+            "label": "Mild tachycardia"
+          },
+          {
+            "min": 111,
+            "max": 130,
+            "score": 3,
+            "label": "Tachycardia"
+          },
+          {
+            "min": 131,
+            "max": 999,
+            "score": 5,
+            "label": "Severe tachycardia"
+          }
+        ],
+        "plausibility": {
+          "min": 30,
+          "max": 220
+        }
+      },
+      "Systolic BP": {
+        "type": "range",
+        "unit": "mmHg",
+        "ranges": [
+          {
+            "min": 0,
+            "max": 89,
+            "score": 5,
+            "label": "Hypotension"
+          },
+          {
+            "min": 90,
+            "max": 99,
+            "score": 3,
+            "label": "Borderline low"
+          },
+          {
+            "min": 100,
+            "max": 139,
+            "score": 0,
+            "label": "Normal"
+          },
+          {
+            "min": 140,
+            "max": 159,
+            "score": 1,
+            "label": "Stage 1 HTN"
+          },
+          {
+            "min": 160,
+            "max": 179,
+            "score": 2,
+            "label": "Stage 2 HTN"
+          },
+          {
+            "min": 180,
+            "max": 999,
+            "score": 4,
+            "label": "Hypertensive urgency"
+          }
+        ],
+        "plausibility": {
+          "min": 50,
+          "max": 260
+        }
+      },
+      "Diastolic BP": {
+        "type": "range",
+        "unit": "mmHg",
+        "ranges": [
+          {
+            "min": 0,
+            "max": 59,
+            "score": 2,
+            "label": "Low diastolic"
+          },
+          {
+            "min": 60,
+            "max": 89,
+            "score": 0,
+            "label": "Normal"
+          },
+          {
+            "min": 90,
+            "max": 99,
+            "score": 1,
+            "label": "Elevated"
+          },
+          {
+            "min": 100,
+            "max": 999,
+            "score": 3,
+            "label": "High diastolic"
+          }
+        ],
+        "plausibility": {
+          "min": 20,
+          "max": 160
+        }
+      },
+      "Respiratory Rate": {
+        "type": "range",
+        "unit": "breaths/min",
+        "ranges": [
+          {
+            "min": 0,
+            "max": 9,
+            "score": 4,
+            "label": "Bradypnea"
+          },
+          {
+            "min": 10,
+            "max": 11,
+            "score": 2,
+            "label": "Low normal"
+          },
+          {
+            "min": 12,
+            "max": 20,
+            "score": 0,
+            "label": "Normal"
+          },
+          {
+            "min": 21,
+            "max": 24,
+            "score": 2,
+            "label": "Mild tachypnea"
+          },
+          {
+            "min": 25,
+            "max": 30,
+            "score": 4,
+            "label": "Tachypnea"
+          },
+          {
+            "min": 31,
+            "max": 999,
+            "score": 6,
+            "label": "Severe tachypnea"
+          }
+        ],
+        "plausibility": {
+          "min": 5,
+          "max": 60
+        }
+      },
+      "Temperature": {
+        "type": "range",
+        "unit": "°F",
+        "ranges": [
+          {
+            "min": 0,
+            "max": 96.7,
+            "score": 3,
+            "label": "Hypothermia"
+          },
+          {
+            "min": 96.8,
+            "max": 99.5,
+            "score": 0,
+            "label": "Normal"
+          },
+          {
+            "min": 99.6,
+            "max": 100.3,
+            "score": 1,
+            "label": "Low-grade fever"
+          },
+          {
+            "min": 100.4,
+            "max": 101.9,
+            "score": 2,
+            "label": "Fever"
+          },
+          {
+            "min": 102.0,
+            "max": 999,
+            "score": 4,
+            "label": "High fever"
+          }
+        ],
+        "plausibility": {
+          "min": 90,
+          "max": 110
+        }
+      },
+      "SpO2": {
+        "type": "range",
+        "unit": "%",
+        "ranges": [
+          {
+            "min": 95,
+            "max": 100,
+            "score": 0,
+            "label": "Normal"
+          },
+          {
+            "min": 92,
+            "max": 94,
+            "score": 2,
+            "label": "Mild hypoxia"
+          },
+          {
+            "min": 88,
+            "max": 91,
+            "score": 4,
+            "label": "Moderate hypoxia"
+          },
+          {
+            "min": 0,
+            "max": 87,
+            "score": 6,
+            "label": "Severe hypoxia"
+          }
+        ],
+        "plausibility": {
+          "min": 50,
+          "max": 100
+        }
+      },
+      "Weight": {
+        "type": "no_direct_score",
+        "note": "Weight alone does not score, but used in interaction patterns (e.g., BMI, fluid overload)",
+        "plausibility": {
+          "min": 20,
+          "max": 300
+        }
+      }
+    }
+  },
+  "LABS": {
+    "max_score": 30,
+    "keywords": {
+      "Hemoglobin": {
+        "type": "range",
+        "unit": "g/dL",
+        "ranges": [
+          {
+            "min": 0,
+            "max": 6.9,
+            "score": 6,
+            "label": "Critical anemia"
+          },
+          {
+            "min": 7.0,
+            "max": 9.9,
+            "score": 4,
+            "label": "Moderate anemia"
+          },
+          {
+            "min": 10.0,
+            "max": 11.9,
+            "score": 2,
+            "label": "Mild anemia"
+          },
+          {
+            "min": 12.0,
+            "max": 17.0,
+            "score": 0,
+            "label": "Normal"
+          },
+          {
+            "min": 17.1,
+            "max": 999,
+            "score": 2,
+            "label": "Polycythemia"
+          }
+        ],
+        "plausibility": {
+          "min": 2,
+          "max": 25
+        }
+      },
+      "Hematocrit": {
+        "type": "range",
+        "unit": "%",
+        "ranges": [
+          {
+            "min": 0,
+            "max": 20.9,
+            "score": 5,
+            "label": "Critical low"
+          },
+          {
+            "min": 21.0,
+            "max": 29.9,
+            "score": 3,
+            "label": "Low"
+          },
+          {
+            "min": 30.0,
+            "max": 35.9,
+            "score": 1,
+            "label": "Mildly low"
+          },
+          {
+            "min": 36.0,
+            "max": 45.0,
+            "score": 0,
+            "label": "Normal"
+          },
+          {
+            "min": 45.1,
+            "max": 999,
+            "score": 1,
+            "label": "Elevated"
+          }
+        ],
+        "plausibility": {
+          "min": 5,
+          "max": 70
+        }
+      },
+      "WBC": {
+        "type": "range",
+        "unit": "K/uL",
+        "ranges": [
+          {
+            "min": 0,
+            "max": 3.9,
+            "score": 2,
+            "label": "Leukopenia"
+          },
+          {
+            "min": 4.0,
+            "max": 11.0,
+            "score": 0,
+            "label": "Normal"
+          },
+          {
+            "min": 11.1,
+            "max": 15.0,
+            "score": 1,
+            "label": "Mild leukocytosis"
+          },
+          {
+            "min": 15.1,
+            "max": 20.0,
+            "score": 3,
+            "label": "Moderate leukocytosis"
+          },
+          {
+            "min": 20.1,
+            "max": 999,
+            "score": 5,
+            "label": "Severe leukocytosis"
+          }
+        ],
+        "plausibility": {
+          "min": 0.1,
+          "max": 200
+        }
+      },
+      "Platelet": {
+        "type": "range",
+        "unit": "K/uL",
+        "ranges": [
+          {
+            "min": 0,
+            "max": 49,
+            "score": 5,
+            "label": "Severe thrombocytopenia"
+          },
+          {
+            "min": 50,
+            "max": 99,
+            "score": 3,
+            "label": "Moderate thrombocytopenia"
+          },
+          {
+            "min": 100,
+            "max": 149,
+            "score": 1,
+            "label": "Mild thrombocytopenia"
+          },
+          {
+            "min": 150,
+            "max": 400,
+            "score": 0,
+            "label": "Normal"
+          },
+          {
+            "min": 401,
+            "max": 999,
+            "score": 2,
+            "label": "Thrombocytosis"
+          }
+        ],
+        "plausibility": {
+          "min": 1,
+          "max": 2000
+        }
+      },
+      "Sodium": {
+        "type": "range",
+        "unit": "mEq/L",
+        "ranges": [
+          {
+            "min": 0,
+            "max": 129,
+            "score": 5,
+            "label": "Severe hyponatremia"
+          },
+          {
+            "min": 130,
+            "max": 134,
+            "score": 3,
+            "label": "Mild hyponatremia"
+          },
+          {
+            "min": 135,
+            "max": 145,
+            "score": 0,
+            "label": "Normal"
+          },
+          {
+            "min": 146,
+            "max": 150,
+            "score": 2,
+            "label": "Mild hypernatremia"
+          },
+          {
+            "min": 151,
+            "max": 999,
+            "score": 4,
+            "label": "Severe hypernatremia"
+          }
+        ],
+        "plausibility": {
+          "min": 100,
+          "max": 180
+        }
+      },
+      "Potassium": {
+        "type": "range",
+        "unit": "mEq/L",
+        "ranges": [
+          {
+            "min": 0,
+            "max": 2.9,
+            "score": 5,
+            "label": "Severe hypokalemia"
+          },
+          {
+            "min": 3.0,
+            "max": 3.4,
+            "score": 2,
+            "label": "Mild hypokalemia"
+          },
+          {
+            "min": 3.5,
+            "max": 5.0,
+            "score": 0,
+            "label": "Normal"
+          },
+          {
+            "min": 5.1,
+            "max": 5.5,
+            "score": 2,
+            "label": "Mild hyperkalemia"
+          },
+          {
+            "min": 5.6,
+            "max": 6.0,
+            "score": 4,
+            "label": "Moderate hyperkalemia"
+          },
+          {
+            "min": 6.1,
+            "max": 999,
+            "score": 6,
+            "label": "Severe hyperkalemia"
+          }
+        ],
+        "plausibility": {
+          "min": 1.5,
+          "max": 8.0
+        }
+      },
+      "Creatinine": {
+        "type": "range",
+        "unit": "mg/dL",
+        "ranges": [
+          {
+            "min": 0,
+            "max": 1.2,
+            "score": 0,
+            "label": "Normal"
+          },
+          {
+            "min": 1.3,
+            "max": 1.9,
+            "score": 2,
+            "label": "Mildly elevated"
+          },
+          {
+            "min": 2.0,
+            "max": 3.0,
+            "score": 4,
+            "label": "Moderate renal impairment"
+          },
+          {
+            "min": 3.1,
+            "max": 999,
+            "score": 6,
+            "label": "Severe renal impairment"
+          }
+        ],
+        "plausibility": {
+          "min": 0.1,
+          "max": 20
+        }
+      },
+      "BUN": {
+        "type": "range",
+        "unit": "mg/dL",
+        "ranges": [
+          {
+            "min": 0,
+            "max": 6,
+            "score": 1,
+            "label": "Low (malnutrition?)"
+          },
+          {
+            "min": 7,
+            "max": 20,
+            "score": 0,
+            "label": "Normal"
+          },
+          {
+            "min": 21,
+            "max": 40,
+            "score": 2,
+            "label": "Mildly elevated"
+          },
+          {
+            "min": 41,
+            "max": 60,
+            "score": 4,
+            "label": "Moderate azotemia"
+          },
+          {
+            "min": 61,
+            "max": 999,
+            "score": 6,
+            "label": "Severe azotemia"
+          }
+        ],
+        "plausibility": {
+          "min": 1,
+          "max": 200
+        }
+      },
+      "Glucose": {
+        "type": "range",
+        "unit": "mg/dL",
+        "ranges": [
+          {
+            "min": 0,
+            "max": 69,
+            "score": 4,
+            "label": "Hypoglycemia"
+          },
+          {
+            "min": 70,
+            "max": 140,
+            "score": 0,
+            "label": "Normal"
+          },
+          {
+            "min": 141,
+            "max": 200,
+            "score": 1,
+            "label": "Mild hyperglycemia"
+          },
+          {
+            "min": 201,
+            "max": 300,
+            "score": 2,
+            "label": "Moderate hyperglycemia"
+          },
+          {
+            "min": 301,
+            "max": 999,
+            "score": 4,
+            "label": "Severe hyperglycemia"
+          }
+        ],
+        "plausibility": {
+          "min": 20,
+          "max": 1000
+        }
+      },
+      "Bicarbonate": {
+        "type": "range",
+        "unit": "mEq/L",
+        "ranges": [
+          {
+            "min": 0,
+            "max": 17,
+            "score": 4,
+            "label": "Severe acidosis"
+          },
+          {
+            "min": 18,
+            "max": 21,
+            "score": 2,
+            "label": "Mild acidosis"
+          },
+          {
+            "min": 22,
+            "max": 28,
+            "score": 0,
+            "label": "Normal"
+          },
+          {
+            "min": 29,
+            "max": 32,
+            "score": 1,
+            "label": "Mild alkalosis"
+          },
+          {
+            "min": 33,
+            "max": 999,
+            "score": 3,
+            "label": "Severe alkalosis"
+          }
+        ],
+        "plausibility": {
+          "min": 5,
+          "max": 50
+        }
+      }
+    }
+  },
+  "PROBLEMS": {
+    "max_score": 40,
+    "scoring_method": "snomed_group_weighted",
+    "config": {
+      "group_mapping_file": "snomed_problem_groups.json",
+      "multimorbidity_bonus": {
+        "description": "For each active problem group beyond the 3rd, add +1 (capped at +5)",
+        "threshold": 3,
+        "per_extra_group": 1,
+        "cap": 5
+      },
+      "value_filter": {
+        "include_values": [
+          "chronic",
+          "acute",
+          "exist"
+        ],
+        "exclude_values": [
+          "not exist"
+        ]
+      },
+      "score_cap": 40
+    }
+  },
+  "SYMPTOMS": {
+    "max_score": 15,
+    "scoring_method": "urgency_group_weighted",
+    "config": {
+      "group_mapping_file": "symptom_urgency_groups.json",
+      "severity_multiplier": {
+        "severe": 1.5,
+        "yes": 1.0,
+        "no": 0.0
+      },
+      "active_symptom_count_bonus": {
+        "description": "Bonus for having many active symptoms at once",
+        "threshold": 3,
+        "bonus": 2
+      },
+      "score_cap": 15
+    }
+  },
+  "MEDICATIONS": {
+    "max_score": 15,
+    "keywords": {
+      "Medication Count": {
+        "type": "range",
+        "ranges": [
+          {
+            "min": 0,
+            "max": 4,
+            "score": 0,
+            "label": "Low"
+          },
+          {
+            "min": 5,
+            "max": 9,
+            "score": 1,
+            "label": "Moderate"
+          },
+          {
+            "min": 10,
+            "max": 14,
+            "score": 2,
+            "label": "High"
+          },
+          {
+            "min": 15,
+            "max": 999,
+            "score": 4,
+            "label": "Very high (polypharmacy)"
+          }
+        ]
+      },
+      "New Medications Count": {
+        "type": "range",
+        "ranges": [
+          {
+            "min": 0,
+            "max": 1,
+            "score": 0,
+            "label": "Minimal"
+          },
+          {
+            "min": 2,
+            "max": 2,
+            "score": 1,
+            "label": "Moderate"
+          },
+          {
+            "min": 3,
+            "max": 4,
+            "score": 2,
+            "label": "High (adherence risk)"
+          },
+          {
+            "min": 5,
+            "max": 999,
+            "score": 4,
+            "label": "Very high (adherence crisis)"
+          }
+        ]
+      },
+      "Polypharmacy": {
+        "type": "categorical",
+        "values": {
+          "yes": 3,
+          "no": 0
+        },
+        "evidence": "Polypharmacy (>=5 meds) associated with 1.5-2x readmission OR"
+      },
+      "Anticoagulation": {
+        "type": "categorical",
+        "values": {
+          "yes": 2,
+          "no": 0
+        },
+        "evidence": "Anticoagulation = bleeding risk + INR management complexity"
+      },
+      "Insulin Therapy": {
+        "type": "categorical",
+        "values": {
+          "yes": 2,
+          "no": 0
+        },
+        "evidence": "Insulin management at home = hypoglycemia risk"
+      },
+      "Opioid Therapy": {
+        "type": "categorical",
+        "values": {
+          "yes": 3,
+          "no": 0
+        },
+        "evidence": "Opioid use associated with falls, constipation, respiratory depression"
+      },
+      "Diuretic Therapy": {
+        "type": "categorical",
+        "values": {
+          "yes": 1,
+          "no": 0
+        },
+        "evidence": "Diuretics = electrolyte monitoring, volume management"
+      }
+    }
+  },
+  "PROCEDURES": {
+    "max_score": 15,
+    "keywords": {
+      "Any Procedure": {
+        "type": "categorical",
+        "values": {
+          "yes": 2,
+          "no": 0
+        },
+        "note": "Only scored if no specific procedure flags are set"
+      },
+      "Surgery": {
+        "type": "categorical",
+        "values": {
+          "yes": 4,
+          "no": 0
+        },
+        "evidence": "Surgical patients have 15-20% higher readmission rate"
+      },
+      "Dialysis": {
+        "type": "categorical",
+        "values": {
+          "started": 5,
+          "done": 5,
+          "decided": 3,
+          "cancelled": 1,
+          "no": 0
+        },
+        "evidence": "New dialysis initiation associated with very high readmission (OR ~2.5)"
+      },
+      "Mechanical Ventilation": {
+        "type": "mixed",
+        "categorical_values": {
+          "no": 0
+        },
+        "numeric_rule": "Any numeric value > 0 scores 5 points (prolonged ventilation = ICU-level complexity)",
+        "score_if_any_positive": 5,
+        "evidence": "Mechanical ventilation = post-ICU syndrome, deconditioning, respiratory fragility"
+      }
+    }
+  },
+  "UTILIZATION": {
+    "max_score": 20,
+    "keywords": {
+      "Prior Admissions 12mo": {
+        "type": "range",
+        "ranges": [
+          {
+            "min": 0,
+            "max": 0,
+            "score": 0,
+            "label": "No prior"
+          },
+          {
+            "min": 1,
+            "max": 1,
+            "score": 3,
+            "label": "One prior"
+          },
+          {
+            "min": 2,
+            "max": 3,
+            "score": 6,
+            "label": "Frequent"
+          },
+          {
+            "min": 4,
+            "max": 999,
+            "score": 10,
+            "label": "Super-utilizer"
+          }
+        ],
+        "evidence": "Prior admissions is the single strongest predictor (OR 2.0-3.5)"
+      },
+      "ED Visits 6mo": {
+        "type": "range",
+        "ranges": [
+          {
+            "min": 0,
+            "max": 0,
+            "score": 0,
+            "label": "None"
+          },
+          {
+            "min": 1,
+            "max": 1,
+            "score": 2,
+            "label": "One visit"
+          },
+          {
+            "min": 2,
+            "max": 3,
+            "score": 4,
+            "label": "Multiple"
+          },
+          {
+            "min": 4,
+            "max": 999,
+            "score": 6,
+            "label": "Frequent ED user"
+          }
+        ]
+      },
+      "Days Since Last Admission": {
+        "type": "range",
+        "ranges": [
+          {
+            "min": 0,
+            "max": 30,
+            "score": 4,
+            "label": "Very recent (<30d)"
+          },
+          {
+            "min": 31,
+            "max": 90,
+            "score": 2,
+            "label": "Recent (31-90d)"
+          },
+          {
+            "min": 91,
+            "max": 365,
+            "score": 1,
+            "label": "Within year"
+          },
+          {
+            "min": 366,
+            "max": 999999,
+            "score": 0,
+            "label": "Not recent"
+          }
+        ]
+      },
+      "Current Length of Stay": {
+        "type": "range",
+        "ranges": [
+          {
+            "min": 0,
+            "max": 2,
+            "score": 2,
+            "label": "Very short (possible premature discharge)"
+          },
+          {
+            "min": 3,
+            "max": 6,
+            "score": 0,
+            "label": "Typical"
+          },
+          {
+            "min": 7,
+            "max": 13,
+            "score": 2,
+            "label": "Extended"
+          },
+          {
+            "min": 14,
+            "max": 999,
+            "score": 5,
+            "label": "Prolonged (complex case)"
+          }
+        ],
+        "evidence": "Both very short and very long LOS associated with higher readmission"
+      }
+    }
+  },
+  "DISPOSITION": {
+    "max_score": 15,
+    "keywords": {
+      "Discharge Disposition": {
+        "type": "categorical",
+        "values": {
+          "Home": 0,
+          "Home with Services": 2,
+          "Rehab": 4,
+          "SNF": 5,
+          "LTAC": 6,
+          "Hospice": 7,
+          "AMA": 8
+        },
+        "evidence": "AMA discharge has highest 30d readmission (OR ~3.0); SNF/LTAC also elevated"
+      },
+      "Mental Status": {
+        "type": "categorical",
+        "values": {
+          "alert": 0,
+          "oriented": 0,
+          "confused": 4,
+          "lethargic": 6
+        },
+        "evidence": "Altered mental status at discharge = post-delirium syndrome, medication errors, fall risk"
+      }
+    }
+  },
+  "INTERACTIONS": {
+    "description": "Cross-cluster clinical pattern detection. Bonus points when synergistic patterns are present.",
+    "patterns": [
+      {
+        "id": "sepsis_pattern",
+        "name": "Sepsis / SIRS Pattern",
+        "bonus": 10,
+        "conditions": {
+          "require_all": [
+            {
+              "cluster": "VITALS",
+              "keyword": "Heart Rate",
+              "operator": ">",
+              "value": 100
+            }
+          ],
+          "require_any_of": [
+            {
+              "cluster": "VITALS",
+              "keyword": "Systolic BP",
+              "operator": "<",
+              "value": 100
+            },
+            {
+              "cluster": "VITALS",
+              "keyword": "Respiratory Rate",
+              "operator": ">",
+              "value": 22
+            }
+          ],
+          "require_any_of_2": [
+            {
+              "cluster": "LABS",
+              "keyword": "WBC",
+              "operator": ">",
+              "value": 12
+            },
+            {
+              "cluster": "LABS",
+              "keyword": "WBC",
+              "operator": "<",
+              "value": 4
+            },
+            {
+              "cluster": "VITALS",
+              "keyword": "Temperature",
+              "operator": ">",
+              "value": 100.4
+            }
+          ]
+        },
+        "evidence": "qSOFA + SIRS criteria. Sepsis at discharge = very high readmission risk."
+      },
+      {
+        "id": "aki_pattern",
+        "name": "Acute Kidney Injury Pattern",
+        "bonus": 8,
+        "conditions": {
+          "require_all": [
+            {
+              "cluster": "LABS",
+              "keyword": "Creatinine",
+              "operator": ">",
+              "value": 1.5
+            },
+            {
+              "cluster": "LABS",
+              "keyword": "BUN",
+              "operator": ">",
+              "value": 30
+            }
+          ],
+          "require_any_of": [
+            {
+              "cluster": "LABS",
+              "keyword": "Potassium",
+              "operator": ">",
+              "value": 5.0
+            },
+            {
+              "cluster": "LABS",
+              "keyword": "Sodium",
+              "operator": "<",
+              "value": 135
+            },
+            {
+              "cluster": "LABS",
+              "keyword": "Bicarbonate",
+              "operator": "<",
+              "value": 22
+            }
+          ]
+        },
+        "evidence": "AKI with electrolyte derangement = unstable renal function, readmission OR ~2.0"
+      },
+      {
+        "id": "decompensated_hf",
+        "name": "Decompensated Heart Failure Pattern",
+        "bonus": 8,
+        "conditions": {
+          "require_problem_group": "heart_failure",
+          "require_any_of": [
+            {
+              "cluster": "SYMPTOMS",
+              "keyword_group": "edema_fluid"
+            },
+            {
+              "cluster": "SYMPTOMS",
+              "keyword_group": "respiratory_distress"
+            },
+            {
+              "cluster": "LABS",
+              "keyword": "BUN",
+              "operator": ">",
+              "value": 40
+            }
+          ]
+        },
+        "evidence": "CHF + fluid overload/dyspnea = decompensation, 25-30% 30d readmission"
+      },
+      {
+        "id": "frailty_syndrome",
+        "name": "Frailty Syndrome",
+        "bonus": 6,
+        "conditions": {
+          "require_all": [
+            {
+              "cluster": "DEMOGRAPHICS",
+              "keyword": "Age",
+              "operator": ">",
+              "value": 75
+            }
+          ],
+          "require_count_ge": {
+            "count": 2,
+            "from": [
+              {
+                "type": "problem_groups_active_ge",
+                "value": 3
+              },
+              {
+                "cluster": "LABS",
+                "keyword": "Hemoglobin",
+                "operator": "<",
+                "value": 10
+              },
+              {
+                "cluster": "DISPOSITION",
+                "keyword": "Mental Status",
+                "value_in": [
+                  "confused",
+                  "lethargic"
+                ]
+              },
+              {
+                "cluster": "DISPOSITION",
+                "keyword": "Discharge Disposition",
+                "value_in": [
+                  "SNF",
+                  "LTAC",
+                  "Rehab"
+                ]
+              }
+            ]
+          }
+        },
+        "evidence": "Frailty = age + multimorbidity + functional decline → readmission OR ~1.8"
+      },
+      {
+        "id": "unstable_discharge",
+        "name": "Unstable Discharge",
+        "bonus": 5,
+        "conditions": {
+          "require_any_of": [
+            {
+              "cluster": "DISPOSITION",
+              "keyword": "Discharge Disposition",
+              "value_in": [
+                "AMA"
+              ]
+            },
+            {
+              "compound_and": [
+                {
+                  "cluster": "DISPOSITION",
+                  "keyword": "Mental Status",
+                  "value_in": [
+                    "confused",
+                    "lethargic"
+                  ]
+                },
+                {
+                  "cluster": "DISPOSITION",
+                  "keyword": "Discharge Disposition",
+                  "value_in": [
+                    "Home"
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        "evidence": "AMA or confused-to-Home = highest readmission subgroup"
+      },
+      {
+        "id": "respiratory_failure",
+        "name": "Respiratory Failure Pattern",
+        "bonus": 6,
+        "conditions": {
+          "require_all": [
+            {
+              "cluster": "VITALS",
+              "keyword": "SpO2",
+              "operator": "<",
+              "value": 92
+            }
+          ],
+          "require_any_of": [
+            {
+              "cluster": "VITALS",
+              "keyword": "Respiratory Rate",
+              "operator": ">",
+              "value": 24
+            },
+            {
+              "cluster": "SYMPTOMS",
+              "keyword_group": "respiratory_distress"
+            }
+          ]
+        },
+        "evidence": "Hypoxia + tachypnea/dyspnea = respiratory failure, readmission OR ~2.0"
+      },
+      {
+        "id": "metabolic_crisis",
+        "name": "Metabolic Crisis (DKA/HHS)",
+        "bonus": 6,
+        "conditions": {
+          "require_all": [
+            {
+              "cluster": "LABS",
+              "keyword": "Glucose",
+              "operator": ">",
+              "value": 300
+            }
+          ],
+          "require_any_of": [
+            {
+              "cluster": "LABS",
+              "keyword": "Bicarbonate",
+              "operator": "<",
+              "value": 18
+            },
+            {
+              "cluster": "LABS",
+              "keyword": "Potassium",
+              "operator": ">",
+              "value": 5.5
+            }
+          ]
+        },
+        "evidence": "DKA/HHS at discharge = very high readmission, especially without insulin education"
+      },
+      {
+        "id": "bleeding_risk",
+        "name": "Active Bleeding Risk",
+        "bonus": 6,
+        "conditions": {
+          "require_all": [
+            {
+              "cluster": "LABS",
+              "keyword": "Hemoglobin",
+              "operator": "<",
+              "value": 8
+            }
+          ],
+          "require_any_of": [
+            {
+              "cluster": "LABS",
+              "keyword": "Platelet",
+              "operator": "<",
+              "value": 100
+            },
+            {
+              "cluster": "MEDICATIONS",
+              "keyword": "Anticoagulation",
+              "value_in": [
+                "yes"
+              ]
+            }
+          ]
+        },
+        "evidence": "Severe anemia + thrombocytopenia/anticoagulation = high bleeding readmission risk"
+      }
+    ]
+  },
+  "DAYS_PREDICTION": {
+    "description": "Maps composite risk score to estimated days-to-readmission.",
+    "models": {
+      "regression": {
+        "formula": "max(1, D_max * exp(-gamma * score))",
+        "parameters": {
+          "D_max": 20,
+          "gamma": 0.022
+        },
+        "expected_outputs": {
+          "score_10": 16.1,
+          "score_20": 12.9,
+          "score_40": 8.3,
+          "score_60": 5.3,
+          "score_80": 3.4,
+          "score_100": 2.2
+        }
+      },
+      "buckets": {
+        "urgent": {
+          "label": "0-7 days",
+          "condition": "estimated_days <= 7"
+        },
+        "near_term": {
+          "label": "8-14 days",
+          "condition": "7 < estimated_days <= 14"
+        },
+        "late": {
+          "label": "15-30 days",
+          "condition": "estimated_days > 14"
+        }
+      },
+      "survival": {
+        "description": "Exponential hazard model for P(readmit by day t)",
+        "formula": "P(t) = P_30d * (1 - exp(-(t/30) * k)) / (1 - exp(-k))",
+        "parameters": {
+          "k_base": 2.0,
+          "k_adjustment": "k = k_base + 0.02 * (score - 30)"
+        },
+        "notes": [
+          "k > 1 means hazard is front-loaded (higher risk patients readmit earlier)",
+          "k < 1 means hazard is back-loaded",
+          "P_30d is from the logistic calibration model"
+        ],
+        "output_horizons": [
+          7,
+          14,
+          21,
+          30
+        ]
+      }
+    }
+  }
+}

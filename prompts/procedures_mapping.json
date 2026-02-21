@@ -1,0 +1,40 @@
+{
+  "version": "1.0",
+  "note": "Conservative procedure mapping for readmission MVP. Uses regex on display/code text. First match wins.",
+  "rules": [
+    {"pattern": "\\b(intubation|endotracheal|mechanical ventilation|ventilator)\\b", "canonical": "Mechanical ventilation"},
+    {"pattern": "\\b(tracheostomy)\\b", "canonical": "Tracheostomy"},
+
+    {"pattern": "\\b(hemodialysis|haemodialysis|dialysis)\\b", "canonical": "Dialysis"},
+    {"pattern": "\\b(crrt|continuous renal replacement)\\b", "canonical": "CRRT"},
+
+    {"pattern": "\\b(central venous catheter|central line|cvc|picc)\\b", "canonical": "Central line"},
+    {"pattern": "\\b(arterial line|a-line)\\b", "canonical": "Arterial line"},
+
+    {"pattern": "\\b(cardiac catheterization|coronary angiography)\\b", "canonical": "Cardiac cath"},
+    {"pattern": "\\b(pci|percutaneous coronary intervention|stent)\\b", "canonical": "PCI/stent"},
+    {"pattern": "\\b(cabg|coronary artery bypass)\\b", "canonical": "CABG"},
+
+    {"pattern": "\\b(pacemaker|icd|defibrillator)\\b", "canonical": "Pacemaker/ICD"},
+
+    {"pattern": "\\b(echocardiogram|echo\\b|ttee?\\b|transesophageal)\\b", "canonical": "Echocardiography"},
+
+    {"pattern": "\\b(ct\\b|computed tomography)\\b", "canonical": "CT imaging"},
+    {"pattern": "\\b(mri\\b|magnetic resonance)\\b", "canonical": "MRI imaging"},
+
+    {"pattern": "\\b(ultrasound|sonogram)\\b", "canonical": "Ultrasound"},
+
+    {"pattern": "\\b(blood transfusion|transfusion|packed red|prbc|ffp|platelet transfusion)\\b", "canonical": "Transfusion"},
+
+    {"pattern": "\\b(endoscopy|egd\\b|colonoscopy|sigmoidoscopy)\\b", "canonical": "Endoscopy"},
+
+    {"pattern": "\\b(vital signs|taking patient vital signs)\\b", "canonical": "Vital signs assessment"},
+    {"pattern": "\\b(electrocardiogram|ecg|ekg)\\b", "canonical": "ECG"},
+    {"pattern": "\\b(chest x-?ray|c\\s*xr|radiograph)\\b", "canonical": "X-ray imaging"},
+    {"pattern": "\\b(oxygen therapy|supplemental oxygen|nasal cannula|nonrebreather)\\b", "canonical": "Oxygen therapy"},
+    {"pattern": "\\b(iv\\b|intravenous|venipuncture|peripheral iv)\\b", "canonical": "Peripheral IV"},
+
+    {"pattern": "\\b(surgery|operative|laparotom|laparoscop|appendectomy|cholecystectomy|colectomy)\\b", "canonical": "Major surgery"}
+  ],
+  "default": null
+}

@@ -1,0 +1,41 @@
+{
+  "version": "1.0",
+  "notes": "Mapping from MIMIC-IV-on-FHIR Condition (ICD9/ICD10) to canonical PROBLEMS labels used by the readmission MVP. Extend iteratively; keep conservative to avoid false positives.",
+  "icd9_prefix_map": [
+    {"prefix": "401", "canonical": "Hypertension"},
+    {"prefix": "405", "canonical": "Hypertension"},
+
+    {"prefix": "272", "canonical": "Hyperlipidemia"},
+
+    {"prefix": "250", "canonical": "Diabetes"},
+
+    {"prefix": "414", "canonical": "Coronary Artery Disease"},
+    {"prefix": "410", "canonical": "Myocardial Infarction"},
+
+    {"prefix": "428", "canonical": "Heart Failure"},
+
+    {"prefix": "42731", "canonical": "Atrial Fibrillation"},
+
+    {"prefix": "496", "canonical": "COPD"},
+    {"prefix": "491", "canonical": "COPD"},
+    {"prefix": "492", "canonical": "COPD"},
+
+    {"prefix": "585", "canonical": "Chronic Kidney Disease"},
+
+    {"prefix": "431", "canonical": "Intracerebral Hemorrhage"},
+    {"prefix": "434", "canonical": "Ischemic Stroke"},
+    {"prefix": "435", "canonical": "TIA"},
+
+    {"prefix": "V10", "canonical": "History of Cancer"}
+  ],
+  "display_regex_map": [
+    {"pattern": "hypertension|htn", "canonical": "Hypertension"},
+    {"pattern": "hyperlipidemia|hld", "canonical": "Hyperlipidemia"},
+    {"pattern": "\\bdiabetes\\b|dm(\\s|$)", "canonical": "Diabetes"},
+    {"pattern": "heart failure|congestive heart failure|\\bchf\\b", "canonical": "Heart Failure"},
+    {"pattern": "atrial fibrillation|\\bafib\\b", "canonical": "Atrial Fibrillation"},
+    {"pattern": "chronic obstructive|\\bcopd\\b", "canonical": "COPD"},
+    {"pattern": "chronic kidney|\\bckd\\b", "canonical": "Chronic Kidney Disease"},
+    {"pattern": "stroke|cerebral infarct|intracerebral hemorr", "canonical": "Stroke"}
+  ]
+}

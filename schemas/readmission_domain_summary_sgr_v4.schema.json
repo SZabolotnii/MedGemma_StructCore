@@ -1,0 +1,128 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "ReadmissionDomainSummary_SGRv4_SafeKeys",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "DEMOGRAPHICS",
+    "VITALS",
+    "LABS",
+    "PROBLEMS",
+    "SYMPTOMS",
+    "MEDICATIONS",
+    "PROCEDURES",
+    "UTILIZATION",
+    "DISPOSITION"
+  ],
+  "properties": {
+    "DEMOGRAPHICS": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["sex", "age"],
+      "properties": {
+        "sex": { "type": "string", "enum": ["male", "female", "not stated"] },
+        "age": { "type": "string", "maxLength": 16 }
+      }
+    },
+    "VITALS": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["admission", "discharge"],
+      "properties": {
+        "admission": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": ["heart_rate", "systolic_bp", "diastolic_bp", "respiratory_rate", "temperature", "spo2", "weight"],
+          "properties": {
+            "heart_rate": { "type": "string", "maxLength": 16 },
+            "systolic_bp": { "type": "string", "maxLength": 16 },
+            "diastolic_bp": { "type": "string", "maxLength": 16 },
+            "respiratory_rate": { "type": "string", "maxLength": 16 },
+            "temperature": { "type": "string", "maxLength": 16 },
+            "spo2": { "type": "string", "maxLength": 16 },
+            "weight": { "type": "string", "maxLength": 16 }
+          }
+        },
+        "discharge": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": ["heart_rate", "systolic_bp", "diastolic_bp", "respiratory_rate", "temperature", "spo2", "weight"],
+          "properties": {
+            "heart_rate": { "type": "string", "maxLength": 16 },
+            "systolic_bp": { "type": "string", "maxLength": 16 },
+            "diastolic_bp": { "type": "string", "maxLength": 16 },
+            "respiratory_rate": { "type": "string", "maxLength": 16 },
+            "temperature": { "type": "string", "maxLength": 16 },
+            "spo2": { "type": "string", "maxLength": 16 },
+            "weight": { "type": "string", "maxLength": 16 }
+          }
+        }
+      }
+    },
+    "LABS": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["admission", "discharge"],
+      "properties": {
+        "admission": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": ["hemoglobin", "hematocrit", "wbc", "platelet", "sodium", "potassium", "creatinine", "bun", "glucose", "bicarbonate"],
+          "properties": {
+            "hemoglobin": { "type": "string", "maxLength": 16 },
+            "hematocrit": { "type": "string", "maxLength": 16 },
+            "wbc": { "type": "string", "maxLength": 16 },
+            "platelet": { "type": "string", "maxLength": 16 },
+            "sodium": { "type": "string", "maxLength": 16 },
+            "potassium": { "type": "string", "maxLength": 16 },
+            "creatinine": { "type": "string", "maxLength": 16 },
+            "bun": { "type": "string", "maxLength": 16 },
+            "glucose": { "type": "string", "maxLength": 16 },
+            "bicarbonate": { "type": "string", "maxLength": 16 }
+          }
+        },
+        "discharge": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": ["hemoglobin", "hematocrit", "wbc", "platelet", "sodium", "potassium", "creatinine", "bun", "glucose", "bicarbonate"],
+          "properties": {
+            "hemoglobin": { "type": "string", "maxLength": 16 },
+            "hematocrit": { "type": "string", "maxLength": 16 },
+            "wbc": { "type": "string", "maxLength": 16 },
+            "platelet": { "type": "string", "maxLength": 16 },
+            "sodium": { "type": "string", "maxLength": 16 },
+            "potassium": { "type": "string", "maxLength": 16 },
+            "creatinine": { "type": "string", "maxLength": 16 },
+            "bun": { "type": "string", "maxLength": 16 },
+            "glucose": { "type": "string", "maxLength": 16 },
+            "bicarbonate": { "type": "string", "maxLength": 16 }
+          }
+        }
+      }
+    },
+    "PROBLEMS": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["pmh_comorbidities", "discharge_dx", "complications", "working_dx"],
+      "properties": {
+        "pmh_comorbidities": { "type": "array", "maxItems": 6, "items": { "type": "string", "minLength": 2, "maxLength": 60 } },
+        "discharge_dx": { "type": "array", "maxItems": 6, "items": { "type": "string", "minLength": 2, "maxLength": 60 } },
+        "complications": { "type": "array", "maxItems": 4, "items": { "type": "string", "minLength": 2, "maxLength": 60 } },
+        "working_dx": { "type": "array", "maxItems": 4, "items": { "type": "string", "minLength": 2, "maxLength": 60 } }
+      }
+    },
+    "SYMPTOMS": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["admission", "discharge"],
+      "properties": {
+        "admission": { "type": "array", "maxItems": 4, "items": { "type": "string", "minLength": 2, "maxLength": 60 } },
+        "discharge": { "type": "array", "maxItems": 4, "items": { "type": "string", "minLength": 2, "maxLength": 60 } }
+      }
+    },
+    "MEDICATIONS": { "type": "string", "maxLength": 260 },
+    "PROCEDURES": { "type": "string", "maxLength": 320 },
+    "UTILIZATION": { "type": "string", "maxLength": 320 },
+    "DISPOSITION": { "type": "string", "maxLength": 260 }
+  }
+}

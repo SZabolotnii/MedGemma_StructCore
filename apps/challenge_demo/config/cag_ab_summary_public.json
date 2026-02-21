@@ -1,0 +1,19 @@
+{
+  "title": "Stage2 CAG A/B summary (public, data-free)",
+  "status": "Verified",
+  "setup": {
+    "backend_a": "llama.cpp /v1 (Stage2) WITHOUT prompt cache",
+    "backend_b": "llama.cpp /v1 (Stage2) WITH prompt cache (--cache-prompt --cache-reuse 256)"
+  },
+  "result": {
+    "n_documents": 200,
+    "byte_identical_outputs": true,
+    "num_diffs": 0,
+    "speedup_percent": 10.6
+  },
+  "notes": [
+    "This file is an aggregated summary only (no case identifiers, no per-document artifacts).",
+    "Prompt caching correctness depends on a byte-identical Stage2 prompt prefix."
+  ]
+}
+

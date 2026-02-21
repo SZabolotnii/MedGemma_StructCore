@@ -1,0 +1,93 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Stage2 Canonical Grouped Facts",
+  "type": "object",
+  "additionalProperties": false,
+  "properties": {
+    "DEMOGRAPHICS": {
+      "$ref": "#/$defs/cluster_items"
+    },
+    "VITALS": {
+      "$ref": "#/$defs/cluster_items"
+    },
+    "LABS": {
+      "$ref": "#/$defs/cluster_items"
+    },
+    "PROBLEMS": {
+      "$ref": "#/$defs/cluster_items"
+    },
+    "SYMPTOMS": {
+      "$ref": "#/$defs/cluster_items"
+    },
+    "MEDICATIONS": {
+      "$ref": "#/$defs/cluster_items"
+    },
+    "PROCEDURES": {
+      "$ref": "#/$defs/cluster_items"
+    },
+    "UTILIZATION": {
+      "$ref": "#/$defs/cluster_items"
+    },
+    "DISPOSITION": {
+      "$ref": "#/$defs/cluster_items"
+    }
+  },
+  "$defs": {
+    "cluster_items": {
+      "type": "array",
+      "maxItems": 30,
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "K",
+          "V",
+          "T"
+        ],
+        "properties": {
+          "K": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 120
+          },
+          "V": {
+            "oneOf": [
+              {
+                "type": "string",
+                "minLength": 1,
+                "maxLength": 200
+              },
+              {
+                "type": "number"
+              },
+              {
+                "type": "integer"
+              },
+              {
+                "type": "boolean"
+              }
+            ]
+          },
+          "T": {
+            "type": "string",
+            "enum": [
+              "Past",
+              "Admission",
+              "Discharge",
+              "Unknown"
+            ]
+          },
+          "E": {
+            "type": "array",
+            "maxItems": 5,
+            "items": {
+              "type": "integer",
+              "minimum": 0
+            },
+            "uniqueItems": true
+          }
+        }
+      }
+    }
+  }
+}

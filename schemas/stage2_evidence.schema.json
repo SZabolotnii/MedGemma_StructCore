@@ -1,0 +1,116 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Stage2 Evidence Facts",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "facts"
+  ],
+  "properties": {
+    "facts": {
+      "type": "array",
+      "maxItems": 120,
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "cluster",
+          "keyword",
+          "candidate_value",
+          "candidate_timestamp",
+          "evidence"
+        ],
+        "properties": {
+          "cluster": {
+            "type": "string",
+            "enum": [
+              "DEMOGRAPHICS",
+              "VITALS",
+              "LABS",
+              "PROBLEMS",
+              "SYMPTOMS",
+              "MEDICATIONS",
+              "PROCEDURES",
+              "UTILIZATION",
+              "DISPOSITION"
+            ]
+          },
+          "keyword": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 120
+          },
+          "candidate_value": {
+            "oneOf": [
+              {
+                "type": "string",
+                "minLength": 1,
+                "maxLength": 200
+              },
+              {
+                "type": "number"
+              },
+              {
+                "type": "integer"
+              },
+              {
+                "type": "boolean"
+              }
+            ]
+          },
+          "candidate_timestamp": {
+            "type": "string",
+            "enum": [
+              "Past",
+              "Admission",
+              "Discharge",
+              "Unknown"
+            ]
+          },
+          "evidence": {
+            "type": "array",
+            "minItems": 1,
+            "maxItems": 3,
+            "items": {
+              "type": "object",
+              "additionalProperties": false,
+              "required": [
+                "snippet"
+              ],
+              "properties": {
+                "snippet": {
+                  "type": "string",
+                  "minLength": 1,
+                  "maxLength": 400
+                },
+                "section": {
+                  "type": "string",
+                  "enum": [
+                    "DEMOGRAPHICS",
+                    "VITALS",
+                    "LABS",
+                    "PROBLEMS",
+                    "SYMPTOMS",
+                    "MEDICATIONS",
+                    "PROCEDURES",
+                    "UTILIZATION",
+                    "DISPOSITION"
+                  ]
+                },
+                "confidence": {
+                  "type": "number",
+                  "minimum": 0.0,
+                  "maximum": 1.0
+                },
+                "rationale": {
+                  "type": "string",
+                  "maxLength": 200
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

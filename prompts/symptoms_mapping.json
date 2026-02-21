@@ -1,0 +1,14 @@
+{
+  "default": "",
+  "rules": [
+    {"pattern": "dyspn|shortness of breath|\\bsob\\b", "canonical": "Dyspnea"},
+    {"pattern": "chest pain|\\bcp\\b", "canonical": "Chest pain"},
+    {"pattern": "abdominal pain|abd pain|belly pain", "canonical": "Abdominal pain"},
+    {"pattern": "lower back pain|\\bback pain\\b|lumbago", "canonical": "Back pain"},
+    {"pattern": "nausea|vomit", "canonical": "Nausea/Vomiting"},
+    {"pattern": "weakness|\\bweak\\b", "canonical": "Weakness"},
+    {"pattern": "numbness|tingling|paresthesia", "canonical": "Numbness"},
+    {"pattern": "cva|tia|stroke|facial droop|slurred speech", "canonical": "Stroke symptoms"},
+    {"pattern": "transfer", "canonical": "Transfer"}
+  ]
+}

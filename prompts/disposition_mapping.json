@@ -1,0 +1,14 @@
+{
+  "version": "1.0",
+  "notes": "Conservative mapping for FHIR Encounter.hospitalization.dischargeDisposition.text -> canonical DISPOSITION values for readmission MVP. Extend iteratively.",
+  "rules": [
+    {"pattern": "^HOME$|home|self care|^HOME HEALTH CARE$|home health", "canonical": "Home"},
+    {"pattern": "skilled nursing|^SNF$|\\bsnf\\b|nursing facility|nursing home|long term care|\\bltc\\b", "canonical": "SNF/LTC"},
+    {"pattern": "^REHAB$|rehab|rehabil", "canonical": "Rehab"},
+    {"pattern": "hospice", "canonical": "Hospice"},
+    {"pattern": "expired|death|deceased|died", "canonical": "Expired"},
+    {"pattern": "\\bama\\b|against medical advice", "canonical": "AMA"},
+    {"pattern": "transfer|acute hospital|other hospital", "canonical": "Transfer"}
+  ],
+  "default": "Other"
+}

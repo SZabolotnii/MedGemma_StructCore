@@ -1,0 +1,37 @@
+{
+  "model_id": "gemini-2.5-flash",
+  "raw_response": "DEMOGRAPHICS|Age|75|Admission\nDEMOGRAPHICS|Sex|male|Admission\nVITALS|Heart Rate|118|Admission\nVITALS|Systolic BP|1",
+  "kvt4_lines": [
+    "DEMOGRAPHICS|Age|75|Admission",
+    "DEMOGRAPHICS|Sex|male|Admission",
+    "VITALS|Heart Rate|118|Admission"
+  ],
+  "normalized_lines": [
+    "DEMOGRAPHICS|Age|75|Admission",
+    "DEMOGRAPHICS|Sex|male|Admission",
+    "VITALS|Heart Rate|118|Admission"
+  ],
+  "normalization_stats": {
+    "input_lines": 3,
+    "parsed_kvt4": 3,
+    "dropped_placeholders": 0,
+    "dropped_noncanonical": 0,
+    "dropped_by_allowed_clusters": 0,
+    "expanded_bp": 0,
+    "dedup_dropped": 0,
+    "output_lines": 3,
+    "canonical_keyword_rate_strict": 1.0,
+    "numeric_only_rate_vitals_labs": 1.0,
+    "duplicates_after_dedup": 0
+  },
+  "fact_count": 3,
+  "cluster_coverage": [
+    "DEMOGRAPHICS",
+    "VITALS"
+  ],
+  "format_validity_rate": 0.75,
+  "duration_sec": 4.968,
+  "is_cached": false,
+  "error": null,
+  "privacy_label": "☁️ Cloud API"
+}
